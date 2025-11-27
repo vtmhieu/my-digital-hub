@@ -3,7 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Download, Linkedin, Mail } from "lucide-react";
-import avatarImage from "@/assets/avatar.jpg";
+import avatarImage from "@/assets/avatar.png";
 
 const About = () => {
   const skills = [

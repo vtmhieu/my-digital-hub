@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
-import avatarImage from "@/assets/avatar.jpg";
+import avatarImage from "@/assets/avatar.png";
 
 const Index = () => {
   return (
