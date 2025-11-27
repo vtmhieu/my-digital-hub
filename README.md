@@ -37,9 +37,25 @@ All configurations are included in this repository:
 - `buildspec.yml` - AWS CodeBuild configuration
 - `.github/workflows/deploy.yml` - GitHub Actions workflow
 
+## Local Development
+
+To run this project locally:
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+The app will be available at **http://localhost:8080/**
+
+For detailed local development instructions, see [LOCAL_DEVELOPMENT.md](./LOCAL_DEVELOPMENT.md).
+
 ## Domain
 
-I'm using domain `hieuvtm.` to access this site.
+I'm using domain `hieuvtm.site` to access this site.
 
 ### Domain Setup
 

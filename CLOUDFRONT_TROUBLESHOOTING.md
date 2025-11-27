@@ -3,7 +3,7 @@
 ## Error Message
 
 ```
-An error occurred (NoSuchDistribution) when calling the CreateInvalidation operation: 
+An error occurred (NoSuchDistribution) when calling the CreateInvalidation operation:
 The specified distribution does not exist.
 ```
 
@@ -12,11 +12,13 @@ The specified distribution does not exist.
 You're using the **full CloudFront domain** instead of just the **distribution ID**.
 
 ### ❌ Wrong:
+
 ```
 CLOUDFRONT_DISTRIBUTION_ID: d363381gk5ntze.cloudfront.net
 ```
 
 ### ✅ Correct:
+
 ```
 CLOUDFRONT_DISTRIBUTION_ID: d363381gk5ntze
 ```
@@ -39,6 +41,7 @@ aws cloudfront list-distributions --query "DistributionList.Items[*].[Id,Comment
 ```
 
 This will show:
+
 - Distribution ID (first column)
 - Comment
 - Domain Name (the `.cloudfront.net` domain)
@@ -58,11 +61,11 @@ This will show:
 
 ## Quick Reference
 
-| What | Format | Example |
-|------|--------|---------|
-| **Distribution ID** (use this) | Alphanumeric string | `d363381gk5ntze` |
-| **CloudFront Domain** | ID + `.cloudfront.net` | `d363381gk5ntze.cloudfront.net` |
-| **Custom Domain** | Your domain | `hieuvtm.com` |
+| What                           | Format                 | Example                         |
+| ------------------------------ | ---------------------- | ------------------------------- |
+| **Distribution ID** (use this) | Alphanumeric string    | `d363381gk5ntze`                |
+| **CloudFront Domain**          | ID + `.cloudfront.net` | `d363381gk5ntze.cloudfront.net` |
+| **Custom Domain**              | Your domain            | `hieuvtm.com`                   |
 
 **For cache invalidation, always use the Distribution ID (first one).**
 
@@ -91,4 +94,3 @@ This shows distribution details and status.
 ### Distribution Not Deployed Yet?
 
 If you just created the distribution, wait 10-15 minutes for it to deploy. You'll see "Status: Deployed" in the CloudFront console when it's ready.
-
