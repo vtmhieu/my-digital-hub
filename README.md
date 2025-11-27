@@ -40,3 +40,7 @@ All configurations are included in this repository:
 ## Domain
 
 I'm using domain `hieuvtm.` to access this site.
+
+### Domain Setup
+
+For complete instructions on buying a domain and connecting it to your AWS deployment, see [DOMAIN_SETUP.md](./DOMAIN_SETUP.md).

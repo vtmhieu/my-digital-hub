@@ -27,8 +27,9 @@ Amplify will auto-detect settings from `amplify.yml`. Just verify:
 
 ### 5. Add Custom Domain (Optional)
 - After deployment, go to "Domain management"
-- Add your domain `hieuvtm.`
+- Add your domain `hieuvtm.com` (or whatever you purchased)
 - Follow DNS configuration instructions
+- **Need to buy a domain? See [DOMAIN_SETUP.md](./DOMAIN_SETUP.md) for complete guide**
 
 ## That's it! 🎉
 

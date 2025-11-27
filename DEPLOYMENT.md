@@ -40,8 +40,9 @@ AWS Amplify provides the easiest way to deploy with built-in CI/CD. It's free fo
 
 5. **Custom Domain (Optional)**
    - In Amplify Console, go to "Domain management"
-   - Add your custom domain `hieuvtm.`
+   - Add your custom domain `hieuvtm.com` (or whatever you purchased)
    - Follow the DNS configuration instructions
+   - **See [DOMAIN_SETUP.md](./DOMAIN_SETUP.md) for complete domain purchase and setup guide**
 
 ### Cost: FREE (within free tier limits)
 
