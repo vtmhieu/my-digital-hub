@@ -126,6 +126,7 @@ This option gives you more control but requires more setup.
    - Add the following secrets:
      - `AWS_ACCESS_KEY_ID`: Your IAM user access key
      - `AWS_SECRET_ACCESS_KEY`: Your IAM user secret key
+   - **📖 See [GITHUB_SECRETS_SETUP.md](./GITHUB_SECRETS_SETUP.md) for detailed step-by-step instructions with screenshots**
 
 3. **Update GitHub Actions Workflow:**
 

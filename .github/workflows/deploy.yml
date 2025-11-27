@@ -8,8 +8,8 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  S3_BUCKET_NAME: your-s3-bucket-name
-  CLOUDFRONT_DISTRIBUTION_ID: your-cloudfront-distribution-id
+  S3_BUCKET_NAME: s3-my-digital-hub-hieuvtm-27-11-25  
+  CLOUDFRONT_DISTRIBUTION_ID: d363381gk5ntze.cloudfront.net
 
 jobs:
   build-and-deploy:
