@@ -133,6 +133,8 @@ This option gives you more control but requires more setup.
    - Edit `.github/workflows/deploy.yml`
    - Update `S3_BUCKET_NAME` with your bucket name
    - Update `CLOUDFRONT_DISTRIBUTION_ID` with your distribution ID (if using CloudFront)
+     - **⚠️ Important:** Use only the ID part (e.g., `d363381gk5ntze`), NOT the full domain (e.g., `d363381gk5ntze.cloudfront.net`)
+     - Find it in CloudFront Console → Your distribution → General tab → Distribution ID
    - Update `AWS_REGION` if different
 
 4. **Commit and Push:**
@@ -270,6 +272,8 @@ Without these configurations, routes like `/about` or `/projects` will show 404 
 - Verify AWS credentials are correctly set in GitHub Secrets
 - Check that S3 bucket name matches exactly (case-sensitive)
 - Ensure IAM user has proper permissions (S3 and CloudFront if used)
+- **CloudFront Distribution ID Error:** If you see "NoSuchDistribution" error, make sure you're using only the distribution ID (e.g., `d363381gk5ntze`), not the full CloudFront domain (e.g., `d363381gk5ntze.cloudfront.net`)
+  - Find the correct ID: CloudFront Console → Select your distribution → General tab → "Distribution ID"
 
 ---
 
