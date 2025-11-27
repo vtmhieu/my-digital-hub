@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
+import avatarImage from "@/assets/avatar.jpg";
 
 const Index = () => {
   return (
@@ -12,6 +13,13 @@ const Index = () => {
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 animate-in fade-in duration-700">
+            <div className="mb-8">
+              <img 
+                src={avatarImage} 
+                alt="Hieu Vu Tong Minh" 
+                className="w-32 h-32 rounded-full mx-auto shadow-medium border-4 border-accent/20 object-cover"
+              />
+            </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight">
               Welcome to My
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
@@ -70,14 +78,35 @@ const Index = () => {
             I'm always open to new opportunities and collaborations
           </p>
           <div className="flex gap-4 justify-center">
-            <Button variant="outline" size="icon" className="hover:bg-accent hover:text-accent-foreground transition-colors">
-              <Github className="w-5 h-5" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="hover:bg-accent hover:text-accent-foreground transition-colors"
+              asChild
+            >
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                <Github className="w-5 h-5" />
+              </a>
             </Button>
-            <Button variant="outline" size="icon" className="hover:bg-accent hover:text-accent-foreground transition-colors">
-              <Linkedin className="w-5 h-5" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="hover:bg-accent hover:text-accent-foreground transition-colors"
+              asChild
+            >
+              <a href="https://www.linkedin.com/in/hieu-vu-tong-minh/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-5 h-5" />
+              </a>
             </Button>
-            <Button variant="outline" size="icon" className="hover:bg-accent hover:text-accent-foreground transition-colors">
-              <Mail className="w-5 h-5" />
+            <Button 
+              variant="outline" 
+              size="icon" 
+              className="hover:bg-accent hover:text-accent-foreground transition-colors"
+              asChild
+            >
+              <a href="mailto:vtmhieu111@gmail.com">
+                <Mail className="w-5 h-5" />
+              </a>
             </Button>
           </div>
         </div>
