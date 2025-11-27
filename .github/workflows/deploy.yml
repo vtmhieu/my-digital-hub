@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: us-east-1
   S3_BUCKET_NAME: s3-my-digital-hub-hieuvtm-27-11-25  
-  CLOUDFRONT_DISTRIBUTION_ID: d363381gk5ntze
+  CLOUDFRONT_DISTRIBUTION_ID: E3L4809EDE89DE
 
 jobs:
   build-and-deploy:
