@@ -30,6 +30,21 @@ jobs:
 
       - name: Build project
         run: npm run build
+      
+      - name: Verify build output
+        run: |
+          echo "📋 Verifying build output..."
+          echo ""
+          echo "Files in dist/ directory:"
+          find dist -type f -o -type d | sort
+          echo ""
+          echo "Checking for required files:"
+          [ -f "dist/index.html" ] && echo "✅ index.html found" || echo "❌ index.html missing!"
+          [ -d "dist/assets" ] && echo "✅ assets/ directory found" || echo "⚠️  assets/ directory not found"
+          ls -la dist/assets/ 2>/dev/null | head -10 || echo "⚠️  No assets found"
+          echo ""
+          echo "Public files (should be in dist/ root):"
+          ls -1 dist/*.ico dist/*.pdf dist/*.svg dist/*.txt 2>/dev/null || echo "⚠️  Some public files may be missing"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -40,8 +55,26 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }}/ --delete
-          aws s3 cp dist/index.html s3://${{ env.S3_BUCKET_NAME }}/index.html --cache-control "no-cache"
+          # List what will be deployed
+          echo "📦 Files to deploy from dist/:"
+          ls -la dist/ || true
+          echo ""
+          
+          # Sync all files from dist/ to S3 bucket root
+          # --delete removes files in S3 that don't exist in dist/
+          # --exact-timestamps ensures files are updated if changed
+          aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }}/ --delete --exact-timestamps
+          
+          # Set no-cache for index.html (important for React Router)
+          aws s3 cp dist/index.html s3://${{ env.S3_BUCKET_NAME }}/index.html \
+            --cache-control "no-cache, no-store, must-revalidate" \
+            --content-type "text/html" \
+            --metadata-directive REPLACE
+          
+          # Verify deployment
+          echo ""
+          echo "✅ Deployment complete! Files in S3:"
+          aws s3 ls s3://${{ env.S3_BUCKET_NAME }}/ --recursive --human-readable --summarize
 
       - name: Invalidate CloudFront cache
         if: env.CLOUDFRONT_DISTRIBUTION_ID != ''

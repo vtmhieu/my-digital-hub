@@ -4,28 +4,28 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
-      title: "E-Commerce Platform",
-      description: "A full-stack e-commerce solution with modern UI and seamless checkout experience.",
-      tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+      title: "Cluster Hibernation & Sustainability",
+      description: "Designed workflows to hibernate cloud resources during inactivity, demonstrating a commitment to sustainable tech by reducing energy waste. Reduced infrastructure energy consumption and costs by 30%.",
+      tags: ["Kubernetes", "OpenStack", "Automation", "Sustainability", "Infrastructure"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     },
     {
-      title: "Task Management App",
-      description: "Collaborative task management tool with real-time updates and team features.",
-      tags: ["TypeScript", "React", "Firebase", "Tailwind"],
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
-    },
-    {
-      title: "Portfolio Website",
-      description: "Personal portfolio showcasing projects and blog posts with elegant design.",
-      tags: ["React", "Vite", "Framer Motion"],
+      title: "Automated Infrastructure Upgrade System",
+      description: "Built CI/CD pipelines to automatically update infrastructure components, ensuring long-term maintainability. Delivered quarterly Kubernetes upgrades (up to v1.32) utilizing automation to ensure zero-downtime and security compliance.",
+      tags: ["CI/CD", "Kubernetes", "Terraform", "GitOps", "ArgoCD"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      liveUrl: "#",
-      githubUrl: "#"
+    },
+    {
+      title: "Backup & Restore Operator",
+      description: "Developed a custom Kubernetes Operator with CRDs (Golang) to secure cluster configurations and data, ensuring business continuity. Built automated workflows and operational dashboards to monitor backup health and retention compliance.",
+      tags: ["Kubernetes", "Golang", "Operators", "CRDs", "Backup"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+    },
+    {
+      title: "Multi-Cloud Networking Enhancements",
+      description: "Extended Cloud Controller Managers with Cilium CNI and Layer-7 routing to improve network performance. Enhanced cloud networking by developing advanced Load Balancer features (Proxy Protocol, Layer 7 HTTPS routing).",
+      tags: ["Kubernetes", "Cilium CNI", "eBPF", "Networking", "Load Balancing"],
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
     },
   ];
 

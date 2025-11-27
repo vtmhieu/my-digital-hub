@@ -4,25 +4,28 @@ import { ExperienceCard } from "@/components/ExperienceCard";
 const Experiences = () => {
   const experiences = [
     {
-      company: "Tech Company Inc.",
-      position: "Senior Frontend Developer",
-      period: "2022 - Present",
-      description: "Leading frontend development for multiple products, mentoring junior developers, and architecting scalable solutions.",
-      skills: ["React", "TypeScript", "Next.js", "Team Leadership"]
+      company: "FPT Smart Cloud",
+      position: "Cloud Platform Engineer",
+      period: "Aug 2023 – Aug 2025",
+      description: "Core member of the Cloud Foundation Team, building and maintaining production-grade Kubernetes infrastructure serving 500+ customer clusters across multiple sites.",
+      achievements: [
+        "Designed declarative automation workflows using Infrastructure as Code (IaC) and reconciliation patterns, replacing manual operations to ensure long-term stability",
+        "Developed and refactored infrastructure controllers (Cloud Controller Manager, Machine Controller Manager), ensuring seamless integration between Kubernetes and underlying cloud infrastructure (OpenStack/VMware)",
+        "Sustainability Focus: Designed and implemented a cluster hibernation/resume workflow (scaling nodes to zero), reducing infrastructure energy consumption and costs by 30%",
+        "Implemented self-service configuration for autoscalers, enabling customers to optimize their own scaling behavior",
+        "Delivered quarterly Kubernetes upgrades (up to v1.32) utilizing automation to ensure zero-downtime and security compliance",
+        "Supported high-performance computing needs by deploying specialized VM templates optimized for NVIDIA GPU workloads",
+        "Enhanced cloud networking by developing advanced Load Balancer features (Proxy Protocol, Layer 7 HTTPS routing) and integrating Cilium CNI for eBPF-based security",
+        "Architected a Kubernetes Operator (Golang/CRDs) for automated backup and restore of persistent volumes, ensuring data integrity and disaster recovery readiness"
+      ],
+      skills: ["Kubernetes", "OpenStack", "Terraform", "Ansible", "Go", "Python", "GitOps", "ArgoCD", "Helm", "Docker", "Prometheus", "Grafana", "Cilium CNI"]
     },
     {
-      company: "Digital Agency",
-      position: "Full Stack Developer",
-      period: "2020 - 2022",
-      description: "Developed client websites and web applications using modern tech stack. Collaborated with designers and project managers.",
-      skills: ["React", "Node.js", "MongoDB", "AWS"]
-    },
-    {
-      company: "Startup Co.",
-      position: "Junior Developer",
-      period: "2018 - 2020",
-      description: "Started my professional journey building features for a SaaS product. Learned industry best practices and agile methodology.",
-      skills: ["JavaScript", "Vue.js", "Python", "Docker"]
+      company: "Viettel Cyber Security",
+      position: "Backend Developer Intern",
+      period: "Jun 2022 – Nov 2022",
+      description: "Selected for the competitive VCS Talent Internship Program. Gained experience in developing secure backend microservices for enterprise security solutions.",
+      skills: ["Backend Development", "Microservices", "Security"]
     },
   ];
 
@@ -44,7 +47,15 @@ const Experiences = () => {
 
             <div className="space-y-6">
               {experiences.map((exp) => (
-                <ExperienceCard key={exp.company} {...exp} />
+                <ExperienceCard 
+                  key={exp.company} 
+                  company={exp.company}
+                  position={exp.position}
+                  period={exp.period}
+                  description={exp.description}
+                  skills={exp.skills}
+                  achievements={exp.achievements}
+                />
               ))}
             </div>
           </div>

@@ -246,6 +246,7 @@ React Fast Refresh is enabled - component state is preserved on edits.
 ### VS Code Setup
 
 Recommended extensions:
+
 - ESLint
 - Prettier
 - TypeScript and JavaScript Language Features
@@ -322,4 +323,3 @@ npm run build:dev
 ---
 
 That's it! Happy coding! 🚀
-

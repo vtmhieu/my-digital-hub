@@ -21,13 +21,13 @@ const Index = () => {
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight">
-              Welcome to My
+              Hieu Vu Tong Minh
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
-                Creative Space
+                Cloud Engineer
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto">
-              A collection of my work, experiences, and thoughts as I navigate through the world of technology and creativity.
+              Building scalable, enterprise-grade infrastructure. MSc Student at KTH. Expertise in Infrastructure as Code, Automation, and Modern Cloud Solutions.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
               <Button asChild size="lg" className="bg-gradient-warm hover:opacity-90 transition-opacity">
@@ -104,7 +104,7 @@ const Index = () => {
               className="hover:bg-accent hover:text-accent-foreground transition-colors"
               asChild
             >
-              <a href="mailto:vtmhieu111@gmail.com">
+              <a href="mailto:hieuvtm@kth.se">
                 <Mail className="w-5 h-5" />
               </a>
             </Button>
