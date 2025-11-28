@@ -97,7 +97,7 @@ jobs:
           echo "🔄 Syncing all files to S3..."
           aws s3 sync dist/ s3://${{ env.S3_BUCKET_NAME }}/ \
             --delete \
-            --exact-timestamps \
+            --exact-timestamps 
           
           # Set no-cache for index.html (important for React Router)
           echo "📝 Setting cache headers for index.html..."
@@ -111,7 +111,7 @@ jobs:
             echo "📝 Setting cache headers for assets..."
             aws s3 sync dist/assets/ s3://${{ env.S3_BUCKET_NAME }}/assets/ \
               --cache-control "public, max-age=31536000, immutable" \
-              --exact-timestamps \
+              --exact-timestamps 
           fi
           
           # Verify deployment
