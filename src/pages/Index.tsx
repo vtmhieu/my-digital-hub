@@ -23,11 +23,11 @@ const Index = () => {
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight">
               Hieu Vu Tong Minh
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
-                Cloud Engineer
+                Cloud Native Engineer
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto">
-              Building scalable, enterprise-grade infrastructure. MSc Student at KTH. Expertise in Infrastructure as Code, Automation, and Modern Cloud Solutions.
+              Kubernetes Platform Engineer passionate about open source. Designing scalable control planes and building cloud infrastructure. MSc Student at KTH.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
               <Button asChild size="lg" className="bg-gradient-warm hover:opacity-90 transition-opacity">

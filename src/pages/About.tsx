@@ -8,24 +8,28 @@ import avatarImage from "@/assets/avatar.png";
 const About = () => {
   const skillCategories = [
     {
-      category: "Cloud & Infrastructure",
-      skills: ["OpenStack", "Kubernetes", "Terraform (IaC)", "Ansible", "VMware", "GCP Concepts"]
+      category: "Kubernetes Ecosystem",
+      skills: ["Kubernetes", "Operators", "Helm", "Istio", "Calico", "Cilium"]
+    },
+    {
+      category: "Cloud & Virtualization",
+      skills: ["OpenStack", "VMware vSphere"]
     },
     {
       category: "Programming",
-      skills: ["Python", "Go (Golang)", "Bash/Shell scripting", "TypeScript"]
+      skills: ["Go", "Python", "Bash/Shell", "Terraform", "Ansible", "YAML"]
     },
     {
-      category: "CI/CD & DevOps",
-      skills: ["GitOps", "ArgoCD", "Jenkins", "Helm", "Docker"]
+      category: "Observability",
+      skills: ["Prometheus", "Grafana", "Loki"]
     },
     {
-      category: "Observability & Security",
-      skills: ["Prometheus", "Grafana", "Loki", "Falco", "Trivy", "Network Policies"]
+      category: "Storage & Databases",
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "etcd", "CSI Drivers"]
     },
     {
-      category: "Databases & Storage",
-      skills: ["PostgreSQL", "MySQL", "Redis", "etcd", "CSI Drivers"]
+      category: "CI/CD & Security",
+      skills: ["ArgoCD", "Jenkins", "RBAC", "Network Policies", "Trivy", "Falco"]
     }
   ];
 
@@ -46,7 +50,7 @@ const About = () => {
                 Hieu Vu Tong Minh
               </h1>
               <p className="text-xl text-foreground/70 mb-6">
-                Cloud Engineer / Platform Engineer — MSc Student at KTH
+                Cloud Native / Kubernetes Platform Engineer — Passionate about Open Source
               </p>
               <div className="flex gap-3 justify-center mb-6 flex-wrap">
                 <Button 
@@ -74,9 +78,9 @@ const About = () => {
                   size="sm"
                   asChild
                 >
-                  <a href="tel:+46764574103">
+                  <a href="tel:+84961596635">
                     <Phone className="w-4 h-4 mr-2" />
-                    +46 764 574 103
+                    +84 961 596 635
                   </a>
                 </Button>
                 <Button 
@@ -106,12 +110,10 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                    Cloud Engineer with 2 years of experience building scalable, enterprise-grade infrastructure. 
-                    Strong expertise in <strong>Infrastructure as Code (IaC)</strong>, <strong>Automation</strong>, and 
-                    <strong> Modern Cloud Solutions</strong>. Proven track record of driving <strong>sustainability</strong> by 
-                    optimizing resource usage and ensuring high availability for critical banking-grade systems. Currently 
-                    pursuing an MSc in Distributed Systems at KTH. Eager to apply deep technical expertise in cloud foundations 
-                    (GCP/Private Cloud) and question the status quo to create value.
+                    Cloud Native Platform Engineer with strong experience in Kubernetes orchestration, automation, and open-source cloud infrastructure. 
+                    Proven track record designing scalable control planes, developing Kubernetes Operators with custom CRDs, and integrating with 
+                    multi-cloud environments (OpenStack, VMware). Passionate about automation, observability, and contributing to open-source infrastructure 
+                    projects. Currently pursuing MSc in Software Engineering of Distributed Systems at KTH Royal Institute of Technology.
                   </p>
                 </div>
 
@@ -126,7 +128,11 @@ const About = () => {
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">BSc in Electronics and Telecommunications</h3>
                       <p className="text-foreground/70">Hanoi University of Science and Technology • 2019 – 2023</p>
-                      <p className="text-foreground/60 text-sm mt-1">GPA: 3.58/4.0 — Ranked 1st in graduation thesis defense (9.5/10)</p>
+                      <p className="text-foreground/60 text-sm mt-1">GPA: 3.58/4.0 — Ranked first in graduation thesis defense (9.5/10)</p>
+                    </div>
+                    <div className="border-l-4 border-accent pl-4">
+                      <h3 className="font-semibold text-lg">Physics Specialized Student</h3>
+                      <p className="text-foreground/70">High School for Gifted Students – HNUE • 2016 – 2019</p>
                     </div>
                   </div>
                 </div>
@@ -153,12 +159,12 @@ const About = () => {
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Languages</h2>
                   <div className="space-y-2">
                     <div className="flex justify-between items-center">
-                      <span className="font-medium">English</span>
-                      <span className="text-foreground/70">Professional Working Proficiency (IELTS 7.0)</span>
-                    </div>
-                    <div className="flex justify-between items-center">
                       <span className="font-medium">Vietnamese</span>
                       <span className="text-foreground/70">Native</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">English</span>
+                      <span className="text-foreground/70">Professional Working Proficiency (IELTS 7.0)</span>
                     </div>
                   </div>
                 </div>
@@ -166,14 +172,22 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Honors & Extracurricular Activities</h2>
                   <div className="space-y-4">
+                    <div className="flex justify-between items-start mb-2">
+                      <div>
+                        <h3 className="font-semibold text-lg">Merit Scholarships (Type A)</h3>
+                        <p className="text-foreground/70 text-sm">Awarded four times for outstanding academic performance at Hanoi University of Science and Technology.</p>
+                      </div>
+                      <Badge variant="secondary">2019 – 2023</Badge>
+                    </div>
                     <div>
                       <div className="flex justify-between items-start mb-2">
                         <h3 className="font-semibold text-lg">Executive Committee Member, Student Youth Union (HUST)</h3>
                         <Badge variant="secondary">2019 – 2023</Badge>
                       </div>
                       <ul className="list-disc list-inside text-foreground/80 space-y-1 ml-2">
-                        <li><strong>Leadership & Collaboration:</strong> Head Organizer of SETCUP (Scale: 600+ participants). Managed large teams and logistics, fostering an inclusive environment.</li>
-                        <li><strong>Community Building:</strong> Core Organizer for "Welcome Freshmen" (University-wide) and Career Orientation events, helping students navigate their future.</li>
+                        <li><strong>Event Management (Scale: 600+ people):</strong> Head Organizer of SETCUP (2019–2021), a major football tournament with 32 teams and over 600 participants per season.</li>
+                        <li><strong>University Events:</strong> Core Organizer for the University Freshmen Orientation (2020, 2021), coordinating logistics for university-wide student intake.</li>
+                        <li><strong>Student Support:</strong> Led career orientation workshops, academic support groups, and industry networking events to connect students with enterprise partners.</li>
                       </ul>
                     </div>
                     <div className="flex justify-between items-center">
@@ -181,14 +195,14 @@ const About = () => {
                         <h3 className="font-semibold text-lg">"Student of 5 Merits" Title</h3>
                         <p className="text-foreground/70 text-sm">Awarded for excellence in 5 criteria: Study, Ethics, Volunteering, Integration, and Physical Fitness.</p>
                       </div>
-                      <Badge variant="secondary">2023</Badge>
+                      <Badge variant="secondary">2022</Badge>
                     </div>
                     <div className="flex justify-between items-center">
                       <div>
-                        <h3 className="font-semibold text-lg">Merit Scholarships (Type A)</h3>
-                        <p className="text-foreground/70 text-sm">Awarded four times for outstanding academic performance.</p>
+                        <h3 className="font-semibold text-lg">Certificate of Merit</h3>
+                        <p className="text-foreground/70 text-sm">Recognized by the University President for outstanding study and extracurricular achievements.</p>
                       </div>
-                      <Badge variant="secondary">2019 – 2023</Badge>
+                      <Badge variant="secondary">2022</Badge>
                     </div>
                   </div>
                 </div>

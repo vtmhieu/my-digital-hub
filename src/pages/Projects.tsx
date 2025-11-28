@@ -4,27 +4,27 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
-      title: "Cluster Hibernation & Sustainability",
-      description: "Designed workflows to hibernate cloud resources during inactivity, demonstrating a commitment to sustainable tech by reducing energy waste. Reduced infrastructure energy consumption and costs by 30%.",
-      tags: ["Kubernetes", "OpenStack", "Automation", "Sustainability", "Infrastructure"],
+      title: "Cluster Hibernation & Resume Automation",
+      description: "Designed workflows to hibernate Kubernetes clusters (scale nodes to 0) and restore on demand using custom controllers. Reduced infrastructure cost for customers by up to 30%.",
+      tags: ["Kubernetes", "Operators", "OpenStack", "Automation", "Cost Optimization"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     },
     {
-      title: "Automated Infrastructure Upgrade System",
-      description: "Built CI/CD pipelines to automatically update infrastructure components, ensuring long-term maintainability. Delivered quarterly Kubernetes upgrades (up to v1.32) utilizing automation to ensure zero-downtime and security compliance.",
-      tags: ["CI/CD", "Kubernetes", "Terraform", "GitOps", "ArgoCD"],
+      title: "Automated Kubernetes Version Upgrade System",
+      description: "Built upgrade pipelines to automatically update control-plane and worker nodes in sync with upstream releases. Integrated version compatibility checks and rollback logic across 500+ deployments.",
+      tags: ["Kubernetes", "Automation", "Upgrades", "Version Management", "Rollback"],
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
     },
     {
-      title: "Backup & Restore Operator",
-      description: "Developed a custom Kubernetes Operator with CRDs (Golang) to secure cluster configurations and data, ensuring business continuity. Built automated workflows and operational dashboards to monitor backup health and retention compliance.",
-      tags: ["Kubernetes", "Golang", "Operators", "CRDs", "Backup"],
+      title: "Backup & Restore Operator for OpenStack",
+      description: "Developed a Golang-based Kubernetes Operator with CRDs to back up and restore cluster configurations and persistent volumes.",
+      tags: ["Kubernetes", "Golang", "Operators", "CRDs", "OpenStack", "Backup"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
     },
     {
       title: "Multi-Cloud Networking Enhancements",
-      description: "Extended Cloud Controller Managers with Cilium CNI and Layer-7 routing to improve network performance. Enhanced cloud networking by developing advanced Load Balancer features (Proxy Protocol, Layer 7 HTTPS routing).",
-      tags: ["Kubernetes", "Cilium CNI", "eBPF", "Networking", "Load Balancing"],
+      description: "Extended Machine Controller Manager (MCM) and Load Balancer integrations with Cilium CNI, Proxy Protocol, and multi-zone HA support.",
+      tags: ["Kubernetes", "Cilium", "eBPF", "Networking", "Multi-Cloud", "High Availability"],
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
     },
   ];
@@ -38,10 +38,10 @@ const Projects = () => {
           <div className="animate-in fade-in duration-700">
             <div className="text-center mb-12">
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-                My Projects
+                Projects & Open Source
               </h1>
               <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-                A collection of my work ranging from web applications to open-source contributions
+                A collection of my work on Kubernetes, cloud infrastructure, and open-source contributions
               </p>
             </div>
 
