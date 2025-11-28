@@ -14,28 +14,46 @@ This project is built with:
 
 ## How can I deploy this project?
 
-This is a static React application that can be deployed to AWS using several methods. See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+This project is **optimized for AWS S3 + CloudFront deployment** with automated CI/CD. See deployment guides below.
 
-### Quick Start Options:
+### 🚀 Quick Deploy
 
-1. **AWS Amplify** (Recommended - Easiest)
-   - Connect GitHub repository
-   - Automatic builds and deployments
-   - Free tier includes CI/CD, SSL, and custom domains
+**Option 1: GitHub Actions (Recommended)**
+```bash
+git push origin main
+```
+- Automatic build and deployment
+- Configured and ready to use
+- See [README_DEPLOYMENT.md](./README_DEPLOYMENT.md) for quick start
 
-2. **S3 + CloudFront + GitHub Actions**
-   - More control over deployment process
-   - Uses GitHub Actions for CI/CD (free)
-   - Manual S3 and CloudFront setup required
+**Option 2: Manual Script**
+```bash
+./aws-deploy.sh
+```
+- One-command deployment
+- Requires AWS CLI and `.env` file
 
-3. **AWS CodePipeline + CodeBuild**
-   - Fully managed AWS CI/CD
-   - Uses `buildspec.yml` for build configuration
+### 📚 Deployment Guides
 
-All configurations are included in this repository:
-- `amplify.yml` - AWS Amplify configuration
-- `buildspec.yml` - AWS CodeBuild configuration
-- `.github/workflows/deploy.yml` - GitHub Actions workflow
+- **[README_DEPLOYMENT.md](./README_DEPLOYMENT.md)** - Quick start guide (S3 + CloudFront)
+- **[DEPLOYMENT_S3_CLOUDFRONT.md](./DEPLOYMENT_S3_CLOUDFRONT.md)** - Complete S3/CloudFront guide
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - All deployment options (Amplify, S3, CodePipeline)
+
+### ⚙️ Project Optimizations
+
+This project is structured for optimal S3/CloudFront deployment:
+- ✅ Code splitting for better caching
+- ✅ Asset hashing for cache busting
+- ✅ Optimized build configuration
+- ✅ Automated CI/CD pipeline
+- ✅ React Router support configured
+
+All configurations are included:
+- `.github/workflows/deploy.yml` - GitHub Actions CI/CD
+- `vite.config.ts` - Optimized build config
+- `aws-deploy.sh` - Manual deployment script
+- `amplify.yml` - AWS Amplify config (alternative)
+- `buildspec.yml` - AWS CodeBuild config (alternative)
 
 ## Local Development
 

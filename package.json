@@ -7,8 +7,12 @@
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:analyze": "vite build --mode production && npx vite-bundle-visualizer",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy:verify": "npm run build && echo '✅ Build completed. Check dist/ folder.'",
+    "deploy:s3": "npm run build && aws s3 sync dist/ s3://$S3_BUCKET_NAME/ --delete --exact-timestamps",
+    "deploy:invalidate": "aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DIST_ID --paths '/*'"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
