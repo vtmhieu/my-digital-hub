@@ -1,7 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Info } from "lucide-react";
 import { Button } from "./ui/button";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
 
 interface ProjectCardProps {
   title: string;
@@ -10,33 +18,100 @@ interface ProjectCardProps {
   image?: string;
   liveUrl?: string;
   githubUrl?: string;
+  details?: string[];
+  technologies?: string[];
+  results?: string[];
 }
 
-export const ProjectCard = ({ title, description, tags, image, liveUrl, githubUrl }: ProjectCardProps) => {
+export const ProjectCard = ({ 
+  title, 
+  description, 
+  tags, 
+  image, 
+  liveUrl, 
+  githubUrl,
+  details,
+  technologies,
+  results
+}: ProjectCardProps) => {
   return (
-    <Card className="group hover:shadow-medium transition-all duration-300 overflow-hidden">
-      {image && (
-        <div className="overflow-hidden h-48 bg-muted">
-          <img 
-            src={image} 
-            alt={title} 
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-          />
+    <Dialog>
+      <DialogTrigger asChild>
+        <Card className="group hover:shadow-medium transition-all duration-300 overflow-hidden cursor-pointer">
+          {image && (
+            <div className="overflow-hidden h-48 bg-muted">
+              <img 
+                src={image} 
+                alt={title} 
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+          )}
+          <CardHeader>
+            <CardTitle className="group-hover:text-accent transition-colors">{title}</CardTitle>
+            <CardDescription>{description}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {tags.map((tag) => (
+                <Badge key={tag} variant="secondary">{tag}</Badge>
+              ))}
+            </div>
+            <Button variant="outline" size="sm" className="w-full">
+              <Info className="w-4 h-4 mr-2" />
+              View Details
+            </Button>
+          </CardContent>
+        </Card>
+      </DialogTrigger>
+      <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+        <DialogHeader>
+          <DialogTitle className="text-2xl">{title}</DialogTitle>
+          <DialogDescription className="text-base">{description}</DialogDescription>
+        </DialogHeader>
+        <div className="space-y-6 py-4">
+          {details && details.length > 0 && (
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-accent">What I Did</h3>
+              <ul className="space-y-2">
+                {details.map((detail, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-accent mr-2">•</span>
+                    <span className="text-foreground/80">{detail}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          
+          {technologies && technologies.length > 0 && (
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-accent">Technologies & Tools</h3>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                  <Badge key={tech} variant="secondary">{tech}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
+          
+          {results && results.length > 0 && (
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-accent">Results & Impact</h3>
+              <ul className="space-y-2">
+                {results.map((result, index) => (
+                  <li key={index} className="flex items-start">
+                    <span className="text-accent mr-2">✓</span>
+                    <span className="text-foreground/80">{result}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      )}
-      <CardHeader>
-        <CardTitle className="group-hover:text-accent transition-colors">{title}</CardTitle>
-        <CardDescription>{description}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag) => (
-            <Badge key={tag} variant="secondary">{tag}</Badge>
-          ))}
-        </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 pt-4 border-t">
           {liveUrl && (
-            <Button variant="default" size="sm" asChild>
+            <Button variant="default" size="sm" asChild className="flex-1">
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
@@ -44,15 +119,15 @@ export const ProjectCard = ({ title, description, tags, image, liveUrl, githubUr
             </Button>
           )}
           {githubUrl && (
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" asChild className="flex-1">
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4 mr-2" />
-                Code
+                View Code
               </a>
             </Button>
           )}
         </div>
-      </CardContent>
-    </Card>
+      </DialogContent>
+    </Dialog>
   );
 };
