@@ -47,7 +47,7 @@ const Index = () => {
       {/* Quick Links Section */}
       <section className="pb-20 px-6">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <Link to="/projects" className="group">
               <div className="p-8 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 border border-border">
                 <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-accent transition-colors">Projects</h3>
@@ -58,12 +58,6 @@ const Index = () => {
               <div className="p-8 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 border border-border">
                 <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-accent transition-colors">Experience</h3>
                 <p className="text-foreground/70">My professional journey and achievements</p>
-              </div>
-            </Link>
-            <Link to="/stories" className="group">
-              <div className="p-8 bg-card rounded-xl shadow-soft hover:shadow-medium transition-all duration-300 border border-border">
-                <h3 className="text-2xl font-serif font-bold mb-3 group-hover:text-accent transition-colors">Stories</h3>
-                <p className="text-foreground/70">Daily reflections and learnings</p>
               </div>
             </Link>
           </div>

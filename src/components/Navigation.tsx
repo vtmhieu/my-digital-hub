@@ -8,7 +8,6 @@ const navItems = [
   { to: "/about", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/experiences", label: "Experiences" },
-  { to: "/stories", label: "Stories" },
 ];
 
 export const Navigation = () => {
