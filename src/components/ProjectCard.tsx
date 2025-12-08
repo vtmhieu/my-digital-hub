@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ExternalLink, Github, Info } from "lucide-react";
+import { ExternalLink, Github, Info, FileText } from "lucide-react";
 import { Button } from "./ui/button";
 import {
   Dialog,
@@ -18,6 +18,7 @@ interface ProjectCardProps {
   image?: string;
   liveUrl?: string;
   githubUrl?: string;
+  reportUrl?: string;
   details?: string[];
   technologies?: string[];
   results?: string[];
@@ -30,6 +31,7 @@ export const ProjectCard = ({
   image, 
   liveUrl, 
   githubUrl,
+  reportUrl,
   details,
   technologies,
   results
@@ -109,9 +111,9 @@ export const ProjectCard = ({
             </div>
           )}
         </div>
-        <div className="flex gap-2 pt-4 border-t">
+        <div className="flex gap-2 pt-4 border-t flex-wrap">
           {liveUrl && (
-            <Button variant="default" size="sm" asChild className="flex-1">
+            <Button variant="default" size="sm" asChild className="flex-1 min-w-[120px]">
               <a href={liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4 mr-2" />
                 Live Demo
@@ -119,10 +121,18 @@ export const ProjectCard = ({
             </Button>
           )}
           {githubUrl && (
-            <Button variant="outline" size="sm" asChild className="flex-1">
+            <Button variant="outline" size="sm" asChild className="flex-1 min-w-[120px]">
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4 mr-2" />
                 View Code
+              </a>
+            </Button>
+          )}
+          {reportUrl && (
+            <Button variant="outline" size="sm" asChild className="flex-1 min-w-[120px]">
+              <a href={reportUrl} target="_blank" rel="noopener noreferrer" download>
+                <FileText className="w-4 h-4 mr-2" />
+                View Report
               </a>
             </Button>
           )}

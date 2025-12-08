@@ -4,6 +4,31 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "Personal Portfolio Website",
+      description: "Modern, responsive portfolio website showcasing professional experience, projects, and achievements. Built with React and deployed on AWS CloudFront for optimal performance and global availability.",
+      tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "AWS", "CloudFront", "Portfolio"],
+      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+      liveUrl: "https://www.hieuvtm.site",
+      details: [
+        "Designed and developed a modern, responsive portfolio website with React and TypeScript",
+        "Implemented component-based architecture using shadcn/ui and Tailwind CSS for a polished UI",
+        "Built multi-page navigation with React Router for seamless user experience",
+        "Created interactive project cards with detailed dialogs showcasing work and achievements",
+        "Integrated CV download functionality and external links to professional profiles",
+        "Configured AWS S3 + CloudFront deployment for global CDN distribution",
+        "Set up automated CI/CD pipeline with GitHub Actions for seamless deployments",
+        "Optimized build configuration with code splitting and asset hashing for performance",
+        "Implemented responsive design ensuring optimal viewing across all devices"
+      ],
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Router", "AWS S3", "AWS CloudFront", "GitHub Actions", "CI/CD"],
+      results: [
+        "Successfully deployed portfolio website with 99.9% uptime on AWS CloudFront",
+        "Achieved fast page load times with global CDN distribution",
+        "Streamlined deployment process with automated CI/CD pipeline",
+        "Created a professional showcase for CV, projects, and experiences"
+      ]
+    },
+    {
       title: "Cluster Hibernation & Resume Automation",
       description: "Designed workflows to hibernate Kubernetes clusters (scale nodes to 0) and restore on demand using custom controllers. Reduced infrastructure cost for customers by up to 30%.",
       tags: ["Kubernetes", "Operators", "OpenStack", "Automation", "Cost Optimization"],
@@ -160,6 +185,7 @@ const Projects = () => {
       description: "Designed adaptive octree partitioning for massive glTF datasets. Improved rendering and memory efficiency for 3D city models.",
       tags: ["Python", "C++", "CesiumJS", "3D Graphics", "Bachelor Thesis", "HUST"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      reportUrl: "/VuTongMinhHieu_DATN_thaygui.pdf",
       details: [
         "Designed adaptive octree partitioning algorithm for 3D tile datasets",
         "Optimized partitioning for massive glTF datasets",
