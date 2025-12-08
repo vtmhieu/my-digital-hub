@@ -2,34 +2,38 @@ import { Navigation } from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Download, Linkedin, Mail, Phone, MessageCircle } from "lucide-react";
+import { Download, Linkedin, Mail, Phone, MessageCircle, Globe } from "lucide-react";
 import avatarImage from "@/assets/avatar.png";
 
 const About = () => {
   const skillCategories = [
     {
-      category: "Kubernetes Ecosystem",
-      skills: ["Kubernetes", "Operators", "Helm", "Istio", "Calico", "Cilium"]
+      category: "Programming & Systems",
+      skills: ["Go (primary)", "Python", "Bash", "Linux systems", "Concurrency", "Distributed algorithms", "Erlang-style actor model"]
     },
     {
-      category: "Cloud & Virtualization",
-      skills: ["OpenStack", "VMware vSphere"]
+      category: "Cloud-Native & Distributed Systems",
+      skills: ["Kubernetes (control-plane internals)", "Operators/CRDs", "Reconciliation loops", "Controller-runtime", "Multi-cluster management", "Service mesh concepts", "Cilium/eBPF"]
     },
     {
-      category: "Programming",
-      skills: ["Go", "Python", "Bash/Shell", "Terraform", "Ansible", "YAML"]
+      category: "Cloud Infrastructure",
+      skills: ["OpenStack", "VMware vSphere", "Cluster provisioning", "Autoscaling", "Node lifecycle management"]
     },
     {
-      category: "Observability",
+      category: "Networking & Security",
+      skills: ["L4/L7 load balancing", "Network policies", "RBAC", "Proxy Protocol", "Runtime security (Falco)", "Image scanning (Trivy)"]
+    },
+    {
+      category: "Observability & Reliability",
       skills: ["Prometheus", "Grafana", "Loki"]
     },
     {
-      category: "Storage & Databases",
-      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "etcd", "CSI Drivers"]
+      category: "Data & AI Systems",
+      skills: ["Apache Spark/Flink (batch/stream processing)", "Clustering/Classification", "Association rule mining", "Multi-agent systems (GAMA)"]
     },
     {
-      category: "CI/CD & Security",
-      skills: ["ArgoCD", "Jenkins", "RBAC", "Network Policies", "Trivy", "Falco"]
+      category: "Databases & State",
+      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "etcd"]
     }
   ];
 
@@ -50,7 +54,7 @@ const About = () => {
                 Hieu Vu Tong Minh
               </h1>
               <p className="text-xl text-foreground/70 mb-6">
-                Cloud Native / Kubernetes Platform Engineer — Passionate about Open Source
+                Software Engineer — Passionate About Distributed Systems & Cloud Technologies
               </p>
               <div className="flex gap-3 justify-center mb-6 flex-wrap">
                 <Button 
@@ -93,12 +97,22 @@ const About = () => {
                     WhatsApp
                   </a>
                 </Button>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  asChild
+                >
+                  <a href="https://www.hieuvtm.site" target="_blank" rel="noopener noreferrer">
+                    <Globe className="w-4 h-4 mr-2" />
+                    hieuvtm.site
+                  </a>
+                </Button>
               </div>
               <Button 
                 className="bg-gradient-warm hover:opacity-90 transition-opacity"
                 asChild
               >
-                <a href="/HieuVTM_CV.pdf" download="HieuVTM_CV.pdf">
+                <a href="/HieuVTM_CV-3.pdf" download="HieuVTM_CV-3.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </a>
@@ -110,10 +124,10 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                    Cloud Native Platform Engineer with strong experience in Kubernetes orchestration, automation, and open-source cloud infrastructure. 
-                    Proven track record designing scalable control planes, developing Kubernetes Operators with custom CRDs, and integrating with 
-                    multi-cloud environments (OpenStack, VMware). Passionate about automation, observability, and contributing to open-source infrastructure 
-                    projects. Currently pursuing MSc in Software Engineering of Distributed Systems at KTH Royal Institute of Technology.
+                    Software Engineering student passionate about distributed systems and cloud-native technologies. I have hands-on experience building 
+                    Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and 
+                    open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing 
+                    an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to innovative projects at Ericsson.
                   </p>
                 </div>
 
@@ -123,7 +137,7 @@ const About = () => {
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">MSc in Software Engineering of Distributed Systems</h3>
                       <p className="text-foreground/70">KTH Royal Institute of Technology • 2025 – Now</p>
-                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Focus: Cloud Computing, Distributed Algorithms</p>
+                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Courses: Distributed Systems, Data Mining, Distributed AI and Intelligence Agents.</p>
                     </div>
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">BSc in Electronics and Telecommunications</h3>

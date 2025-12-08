@@ -95,6 +95,87 @@ const Projects = () => {
         "Enabled seamless multi-cloud networking across OpenStack and VMware"
       ]
     },
+    {
+      title: "Distributed Messaging System",
+      description: "Built a distributed middleware with replication, failure detection, and logical-clock synchronization. Demonstrated consistency and fault-tolerant message routing.",
+      tags: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection", "KTH"],
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      details: [
+        "Implemented distributed messaging middleware using Erlang/OTP",
+        "Built replication mechanisms for fault tolerance",
+        "Developed failure detection algorithms",
+        "Implemented logical-clock synchronization",
+        "Designed and validated consistency guarantees",
+        "Created fault-tolerant message routing system"
+      ],
+      technologies: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection"],
+      results: [
+        "Demonstrated consistency in distributed message passing",
+        "Achieved fault-tolerant message routing",
+        "Validated system behavior under various failure scenarios"
+      ]
+    },
+    {
+      title: "Big Data Analytics System",
+      description: "Developed clustering, classification, and streaming analytics pipelines on large datasets using Apache Spark and Flink.",
+      tags: ["Python", "Apache Spark", "Apache Flink", "Big Data", "Machine Learning", "KTH"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+      details: [
+        "Implemented clustering algorithms for large-scale data analysis",
+        "Developed classification models for pattern recognition",
+        "Built batch processing pipelines with Apache Spark",
+        "Created streaming analytics with Apache Flink",
+        "Designed data processing workflows for large datasets",
+        "Analyzed and optimized performance of distributed data processing"
+      ],
+      technologies: ["Python", "Apache Spark", "Apache Flink", "Batch Processing", "Stream Processing"],
+      results: [
+        "Successfully processed large-scale datasets",
+        "Implemented efficient clustering and classification pipelines",
+        "Demonstrated real-time streaming analytics capabilities"
+      ]
+    },
+    {
+      title: "Multi-Agent Simulation Platform",
+      description: "Implemented negotiation, coordination, and decentralized decision-making using agent-based modeling. Analyzed emergent behavior under different agent architectures.",
+      tags: ["GAMA", "Multi-Agent Systems", "Agent-Based Modeling", "AI", "KTH"],
+      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
+      details: [
+        "Implemented multi-agent system using GAMA platform",
+        "Developed negotiation protocols between agents",
+        "Built coordination mechanisms for decentralized systems",
+        "Designed agent architectures with different behavioral patterns",
+        "Analyzed emergent behavior in complex systems",
+        "Evaluated performance under various agent configurations"
+      ],
+      technologies: ["GAMA", "Agent-Based Modeling", "Multi-Agent Systems", "Decentralized Decision-Making"],
+      results: [
+        "Demonstrated effective agent negotiation and coordination",
+        "Analyzed emergent behaviors in distributed systems",
+        "Evaluated different agent architectures"
+      ]
+    },
+    {
+      title: "Adaptive Partitioning for Cesium 3D Tiles",
+      description: "Designed adaptive octree partitioning for massive glTF datasets. Improved rendering and memory efficiency for 3D city models.",
+      tags: ["Python", "C++", "CesiumJS", "3D Graphics", "Bachelor Thesis", "HUST"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
+      details: [
+        "Designed adaptive octree partitioning algorithm for 3D tile datasets",
+        "Optimized partitioning for massive glTF datasets",
+        "Implemented memory-efficient rendering strategies",
+        "Improved rendering performance for 3D city models",
+        "Developed algorithms to balance detail and performance",
+        "Integrated with CesiumJS for visualization"
+      ],
+      technologies: ["Python", "C++", "CesiumJS", "3D Graphics", "Octree Partitioning", "glTF"],
+      results: [
+        "Improved rendering efficiency for large 3D models",
+        "Reduced memory usage through adaptive partitioning",
+        "Achieved better performance for 3D city model visualization",
+        "Ranked 1st in graduation thesis defense (9.5/10)"
+      ]
+    },
   ];
 
   return (

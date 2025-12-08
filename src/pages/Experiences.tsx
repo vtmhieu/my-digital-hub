@@ -6,19 +6,18 @@ const Experiences = () => {
     {
       company: "FPT Smart Cloud",
       position: "Cloud Platform Engineer",
-      period: "Aug 2023 – Aug 2025",
-      description: "Core member of the Managed FPT Kubernetes Engine (M-FKE) team, building and maintaining production-grade Kubernetes infrastructure serving 500+ customer clusters across multiple sites in Vietnam and Japan.",
+      period: "Aug 2023 – Aug 2024",
+      description: "Core engineer in the Managed FPT Kubernetes Engine (M-FKE) team, developing large-scale distributed control-plane components powering 500+ production Kubernetes clusters across multi-site environments in Vietnam and Japan.",
       achievements: [
-        "Designed declarative automation workflows using Kubernetes reconciliation patterns and operator-based architecture, improving reliability and reducing manual operations",
-        "Developed and maintained infrastructure controllers (Cloud Controller Manager, Machine Controller Manager), ensuring seamless integration between Kubernetes and underlying OpenStack/VMware infrastructure",
-        "Implemented self-service configuration for autoscaler parameters and hibernation workflows (scale-to-zero), reducing infrastructure costs by up to 30%",
-        "Delivered quarterly Kubernetes upgrades (up to v1.32), aligned with community releases, including operator updates and VM template refreshes",
-        "Implemented full-stack observability with Grafana, Loki, and Prometheus for proactive incident detection and reduced MTTR",
-        "Developed advanced Load Balancer features (Proxy Protocol, Layer 7 HTTPS routing, health checks) and integrated Cilium CNI for eBPF-based networking",
-        "Designed a highly available ingress architecture for kube-apiserver, ensuring resilient multi-zone failover and zero-downtime control plane upgrades",
-        "Architected a Kubernetes Operator (Golang) with custom CRDs for automated backup and restore of persistent volumes and cluster configurations on OpenStack",
-        "Architected Private Cluster endpoints and integrated automated vulnerability scanning (Trivy) and runtime threat detection (Falco)",
-        "Delivered Tier-3 technical support and incident response, collaborating cross-functionally on feature development and resource tagging for billing automation"
+        "Designed and implemented Kubernetes reconciliation and operator patterns to automate cluster lifecycle management",
+        "Developed control-plane controllers (CCM, MCM) integrating with OpenStack and VMware",
+        "Built autoscaling and cluster hibernation workflows reducing operational cost by up to 30%",
+        "Delivered quarterly Kubernetes upgrades (up to v1.32)",
+        "Built end-to-end observability using Prometheus, Loki, Grafana",
+        "Designed multi-zone control-plane ingress with zero-downtime rollout",
+        "Developed L4/L7 load-balancing (Proxy Protocol, HTTPS routing) and integrated Cilium/eBPF networking",
+        "Built a Kubernetes Operator for automated backup/restore of cluster state and persistent volumes",
+        "Implemented private-cluster endpoint architecture, Trivy scanning, and Falco runtime monitoring"
       ],
       skills: ["Kubernetes", "Operators", "OpenStack", "VMware", "Go", "Python", "Terraform", "Ansible", "ArgoCD", "Helm", "Prometheus", "Grafana", "Loki", "Cilium", "Trivy", "Falco"]
     },
@@ -26,7 +25,7 @@ const Experiences = () => {
       company: "Viettel Cyber Security",
       position: "Backend Developer Intern",
       period: "Jun 2022 – Nov 2022",
-      description: "Selected for the competitive VCS Talent Internship Program. Developed backend microservices and gained experience in enterprise security solutions and distributed backend systems.",
+      description: "Selected for the competitive VCS Talent Program. Developed distributed backend microservices and gained experience with enterprise-grade security and large-scale system design.",
       skills: ["Go", "Backend Development", "Microservices", "Distributed Systems"]
     },
   ];
