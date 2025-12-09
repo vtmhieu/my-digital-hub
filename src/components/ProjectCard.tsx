@@ -155,8 +155,8 @@ export const ProjectCard = ({
           {docUrl && (
             <Button variant="outline" size="sm" asChild className="flex-1 min-w-[120px]">
               <a href={docUrl} target="_blank" rel="noopener noreferrer">
-                <Github className="w-4 h-4 mr-2" />
-                View Code
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Documents
               </a>
             </Button>
           )}
