@@ -11,6 +11,7 @@ const Projects = () => {
       architectureImage: "/Gemini_Generated_Image_akzgsmakzgsmakzg.png",
       featured: true,
       githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
+      docUrl: "https://fptcloud.com/documents/managed-fpt-kubernetes-engine/?doc=backup-restore-vn",
       details: [
         "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
         "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
