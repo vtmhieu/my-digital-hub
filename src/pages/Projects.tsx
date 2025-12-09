@@ -37,6 +37,7 @@ const Projects = () => {
       description: "Modern, responsive portfolio website showcasing professional experience, projects, and achievements. Built with React and deployed on AWS CloudFront for optimal performance and global availability.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "AWS", "CloudFront", "Portfolio"],
       image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
+      architectureImage:"/Gemini_Generated_Image_24o2cc24o2cc24o2.png",
       liveUrl: "https://www.hieuvtm.site",
       details: [
         "Designed and developed a modern, responsive portfolio website with React and TypeScript",

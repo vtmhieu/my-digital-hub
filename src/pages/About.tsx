@@ -124,10 +124,7 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                    Software Engineering student passionate about distributed systems and cloud-native technologies. I have hands-on experience building 
-                    Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and 
-                    open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing 
-                    an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to innovative projects at Ericsson.
+                  Software Engineering student passionate about AI, distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
                   </p>
                 </div>
 
