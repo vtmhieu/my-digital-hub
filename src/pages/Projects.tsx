@@ -8,6 +8,7 @@ const Projects = () => {
       description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
       tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+      architectureImage: "/Gemini_Generated_Image_akzgsmakzgsmakzg.png",
       featured: true,
       githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
       details: [

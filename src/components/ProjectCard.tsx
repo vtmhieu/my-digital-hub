@@ -16,6 +16,7 @@ interface ProjectCardProps {
   description: string;
   tags: string[];
   image?: string;
+  architectureImage?: string;
   liveUrl?: string;
   githubUrl?: string;
   reportUrl?: string;
@@ -30,6 +31,7 @@ export const ProjectCard = ({
   description, 
   tags, 
   image, 
+  architectureImage,
   liveUrl, 
   githubUrl,
   reportUrl,
@@ -79,6 +81,19 @@ export const ProjectCard = ({
           <DialogDescription className="text-base">{description}</DialogDescription>
         </DialogHeader>
         <div className="space-y-6 py-4">
+          {architectureImage && (
+            <div>
+              <h3 className="font-semibold text-lg mb-3 text-accent">Architecture</h3>
+              <div className="rounded-lg overflow-hidden border border-border">
+                <img 
+                  src={architectureImage} 
+                  alt={`${title} Architecture`}
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
+          )}
+          
           {details && details.length > 0 && (
             <div>
               <h3 className="font-semibold text-lg mb-3 text-accent">What I Did</h3>
