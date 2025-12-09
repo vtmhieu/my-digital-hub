@@ -4,6 +4,33 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "Backup & Restore Operator for OpenStack",
+      description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
+      tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+      featured: true,
+      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
+      details: [
+        "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
+        "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
+        "Developed `PvSnapshotReconciler` to create and manage CSI VolumeSnapshots integrated with OpenStack Cinder APIs",
+        "Implemented `RestorePvcReconciler` for creating new PVCs from snapshots with validation and idempotency handling",
+        "Created `SchedulerSnapshotReconciler` for cron-based automated backups with configurable schedules and time zones",
+        "Implemented retention policies to automatically clean up old snapshots while preserving in-use resources",
+        "Added finalizers, status conditions, and periodic requeue logic using controller-runtime for robust reconciliation",
+        "Built multi-cluster support with dynamic client creation from shoot kubeconfigs for managing remote clusters",
+        "Designed installer distribution system using Kustomize to generate single-file `install.yaml` for easy deployment"
+      ],
+      technologies: ["Kubernetes", "Golang", "Kubebuilder", "Controller-Runtime", "CRDs", "OpenStack Cinder", "CSI", "Kustomize", "Multi-cluster"],
+      results: [
+        "Enabled declarative backup/restore workflows for OpenStack-based Kubernetes clusters using custom resources",
+        "Provided automated snapshot scheduling with cron-like syntax and retention management",
+        "Supported multi-cluster operations for inventory and backup across shoot clusters",
+        "Created production-ready operator scaffold ready for integration with OpenStack/Kubernetes environments",
+        "Designed extensible architecture for implementing custom snapshot and restore flows"
+      ]
+    },
+    {
       title: "Personal Portfolio Website",
       description: "Modern, responsive portfolio website showcasing professional experience, projects, and achievements. Built with React and deployed on AWS CloudFront for optimal performance and global availability.",
       tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "AWS", "CloudFront", "Portfolio"],
@@ -70,32 +97,6 @@ const Projects = () => {
         "Reduced manual upgrade operations by 95%",
         "Implemented automated rollback reducing MTTR from hours to minutes",
         "Ensured security compliance with timely patch updates"
-      ]
-    },
-    {
-      title: "Backup & Restore Operator for OpenStack",
-      description: "Developed a Golang-based Kubernetes Operator with CRDs to back up and restore cluster configurations and persistent volumes.",
-      tags: ["Kubernetes", "Golang", "Operators", "CRDs", "OpenStack", "Backup"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      featured: true,
-      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
-      details: [
-        "Architected and developed a Kubernetes Operator using Golang",
-        "Created custom CRDs (Custom Resource Definitions) for backup/restore configurations",
-        "Implemented automated backup workflows for persistent volumes on OpenStack",
-        "Built backup scheduling with retention policies and lifecycle management",
-        "Developed restore operations with point-in-time recovery support",
-        "Created operational dashboards to monitor backup health and compliance",
-        "Integrated with OpenStack Cinder APIs for volume snapshots and backups",
-        "Implemented encryption and compression for backup data"
-      ],
-      technologies: ["Kubernetes", "Golang", "Kubernetes Operators", "CRDs", "OpenStack Cinder", "Prometheus", "Grafana"],
-      results: [
-        "Automated backup operations ensuring data integrity and disaster recovery readiness",
-        "Reduced backup management overhead by 80%",
-        "Enabled point-in-time recovery for critical workloads",
-        "Improved RTO (Recovery Time Objective) from hours to minutes",
-        "Achieved 99.9% backup success rate across all customer clusters"
       ]
     },
     {
