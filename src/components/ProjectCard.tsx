@@ -19,6 +19,7 @@ interface ProjectCardProps {
   architectureImage?: string;
   liveUrl?: string;
   githubUrl?: string;
+  docUrl?: string;
   reportUrl?: string;
   featured?: boolean;
   details?: string[];
@@ -34,6 +35,7 @@ export const ProjectCard = ({
   architectureImage,
   liveUrl, 
   githubUrl,
+  docUrl,
   reportUrl,
   featured,
   details,
@@ -145,6 +147,14 @@ export const ProjectCard = ({
           {githubUrl && (
             <Button variant="outline" size="sm" asChild className="flex-1 min-w-[120px]">
               <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+                <Github className="w-4 h-4 mr-2" />
+                View Code
+              </a>
+            </Button>
+          )}
+          {docUrl && (
+            <Button variant="outline" size="sm" asChild className="flex-1 min-w-[120px]">
+              <a href={docUrl} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4 mr-2" />
                 View Code
               </a>
