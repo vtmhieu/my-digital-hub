@@ -77,6 +77,7 @@ const Projects = () => {
       description: "Developed a Golang-based Kubernetes Operator with CRDs to back up and restore cluster configurations and persistent volumes.",
       tags: ["Kubernetes", "Golang", "Operators", "CRDs", "OpenStack", "Backup"],
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
       details: [
         "Architected and developed a Kubernetes Operator using Golang",
         "Created custom CRDs (Custom Resource Definitions) for backup/restore configurations",
