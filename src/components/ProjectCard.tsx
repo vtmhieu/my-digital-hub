@@ -19,6 +19,7 @@ interface ProjectCardProps {
   liveUrl?: string;
   githubUrl?: string;
   reportUrl?: string;
+  featured?: boolean;
   details?: string[];
   technologies?: string[];
   results?: string[];
@@ -32,6 +33,7 @@ export const ProjectCard = ({
   liveUrl, 
   githubUrl,
   reportUrl,
+  featured,
   details,
   technologies,
   results
@@ -39,7 +41,7 @@ export const ProjectCard = ({
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Card className="group hover:shadow-medium transition-all duration-300 overflow-hidden cursor-pointer">
+        <Card className={`group hover:shadow-medium transition-all duration-300 overflow-hidden cursor-pointer ${featured ? "border-2 border-accent/60 shadow-lg shadow-accent/20" : ""}`}>
           {image && (
             <div className="overflow-hidden h-48 bg-muted">
               <img 
@@ -50,6 +52,11 @@ export const ProjectCard = ({
             </div>
           )}
           <CardHeader>
+            {featured && (
+              <Badge variant="secondary" className="w-fit mb-2 bg-gradient-warm text-white border-0">
+                Favorite
+              </Badge>
+            )}
             <CardTitle className="group-hover:text-accent transition-colors">{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
           </CardHeader>
