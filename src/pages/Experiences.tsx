@@ -6,7 +6,7 @@ const Experiences = () => {
     {
       company: "FPT Smart Cloud",
       position: "Cloud Platform Engineer",
-      period: "Aug 2023 – Aug 2024",
+      period: "Aug 2023 – Aug 2025",
       description: "Core engineer in the Managed FPT Kubernetes Engine (M-FKE) team, developing large-scale distributed control-plane components powering 500+ production Kubernetes clusters across multi-site environments in Vietnam and Japan.",
       achievements: [
         "Designed and implemented Kubernetes reconciliation and operator patterns to automate cluster lifecycle management",

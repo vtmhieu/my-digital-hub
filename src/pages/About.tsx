@@ -112,7 +112,7 @@ const About = () => {
                 className="bg-gradient-warm hover:opacity-90 transition-opacity"
                 asChild
               >
-                <a href="/HieuVTM_CV-3.pdf" download="HieuVTM_CV-3.pdf">
+                <a href="/HieuVTM_CV-4.pdf" download="HieuVTM_CV.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </a>
