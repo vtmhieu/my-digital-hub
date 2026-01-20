@@ -40,14 +40,14 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Navigation />
-      
+
       <div className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="animate-in fade-in duration-700 space-y-8">
             <div className="text-center mb-12">
-              <img 
-                src={avatarImage} 
-                alt="Hieu Vu Tong Minh" 
+              <img
+                src={avatarImage}
+                alt="Hieu Vu Tong Minh"
                 className="w-40 h-40 rounded-full mx-auto mb-6 shadow-medium border-4 border-accent/20 object-cover"
               />
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
@@ -57,8 +57,8 @@ const About = () => {
                 Software Engineer — Passionate About Distributed Systems & Cloud Technologies
               </p>
               <div className="flex gap-3 justify-center mb-6 flex-wrap">
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   asChild
                 >
@@ -67,8 +67,8 @@ const About = () => {
                     LinkedIn
                   </a>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   asChild
                 >
@@ -77,8 +77,8 @@ const About = () => {
                     Email
                   </a>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   asChild
                 >
@@ -87,8 +87,8 @@ const About = () => {
                     +84 961 596 635
                   </a>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   asChild
                 >
@@ -97,8 +97,8 @@ const About = () => {
                     WhatsApp
                   </a>
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   size="sm"
                   asChild
                 >
@@ -108,7 +108,7 @@ const About = () => {
                   </a>
                 </Button>
               </div>
-              <Button 
+              <Button
                 className="bg-gradient-warm hover:opacity-90 transition-opacity"
                 asChild
               >
@@ -124,7 +124,7 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                  Software Engineering student passionate about AI, distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
+                    Software Engineering student passionate about AI, distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
                   </p>
                 </div>
 
@@ -134,7 +134,7 @@ const About = () => {
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">MSc in Software Engineering of Distributed Systems</h3>
                       <p className="text-foreground/70">KTH Royal Institute of Technology • 2025 – Now</p>
-                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Courses: Distributed Systems, Data Mining, Distributed AI and Intelligence Agents.</p>
+                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Courses: Distributed Systems, Data Mining, Distributed AI and Intelligence Agents, Introduction to High Performance Computing.</p>
                     </div>
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">BSc in Electronics and Telecommunications</h3>
