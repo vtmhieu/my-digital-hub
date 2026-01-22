@@ -51,7 +51,7 @@ const About = () => {
                 className="w-40 h-40 rounded-full mx-auto mb-6 shadow-medium border-4 border-accent/20 object-cover"
               />
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-                Hieu Vu Tong Minh
+                Hieu (Hugh) Vu Tong Minh
               </h1>
               <p className="text-xl text-foreground/70 mb-6">
                 Cloud Engineer — Passionate About Distributed Systems & Cloud Technologies

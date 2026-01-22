@@ -8,26 +8,26 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-subtle">
       <Navigation />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="container mx-auto max-w-4xl">
           <div className="text-center space-y-6 animate-in fade-in duration-700">
             <div className="mb-8">
-              <img 
-                src={avatarImage} 
-                alt="Hieu Vu Tong Minh" 
+              <img
+                src={avatarImage}
+                alt="Hieu (Hugh) Vu Tong Minh"
                 className="w-32 h-32 rounded-full mx-auto shadow-medium border-4 border-accent/20 object-cover"
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight">
-              Hieu Vu Tong Minh
+              Hieu (Hugh) Vu Tong Minh
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
                 Software Engineer
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto">
-              Passionate About Distributed Systems & Cloud Technologies. Building Kubernetes control-plane components and working with multi-cloud infrastructure. MSc Student at KTH.
+              Passionate About Distributed Systems & Cloud Technologies. Experienced in building Kubernetes control-plane components and working with multi-cloud infrastructure. MSc Student at KTH.
             </p>
             <div className="flex flex-wrap gap-4 justify-center pt-4">
               <Button asChild size="lg" className="bg-gradient-warm hover:opacity-90 transition-opacity">
@@ -72,9 +72,9 @@ const Index = () => {
             I'm always open to new opportunities and collaborations
           </p>
           <div className="flex gap-4 justify-center">
-            <Button 
-              variant="outline" 
-              size="icon" 
+            <Button
+              variant="outline"
+              size="icon"
               className="hover:bg-accent hover:text-accent-foreground transition-colors"
               asChild
             >
@@ -82,9 +82,9 @@ const Index = () => {
                 <Github className="w-5 h-5" />
               </a>
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
+            <Button
+              variant="outline"
+              size="icon"
               className="hover:bg-accent hover:text-accent-foreground transition-colors"
               asChild
             >
@@ -92,9 +92,9 @@ const Index = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
+            <Button
+              variant="outline"
+              size="icon"
               className="hover:bg-accent hover:text-accent-foreground transition-colors"
               asChild
             >
