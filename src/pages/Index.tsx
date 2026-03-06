@@ -16,14 +16,14 @@ const Index = () => {
             <div className="mb-8">
               <img
                 src={avatarImage}
-                alt="Hieu (Hugh) Vu Tong Minh"
+                alt="Hieu Vu Tong Minh"
                 className="w-32 h-32 rounded-full mx-auto shadow-medium border-4 border-accent/20 object-cover"
               />
             </div>
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary leading-tight">
-              Hieu (Hugh) Vu Tong Minh
+              Hieu Vu Tong Minh
               <span className="block bg-gradient-warm bg-clip-text text-transparent">
-                Software Engineer
+                Platform Engineer
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-foreground/70 max-w-2xl mx-auto">

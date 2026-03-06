@@ -47,14 +47,14 @@ const About = () => {
             <div className="text-center mb-12">
               <img
                 src={avatarImage}
-                alt="Hieu (Hugh) Vu Tong Minh"
+                alt="Hieu Vu Tong Minh"
                 className="w-40 h-40 rounded-full mx-auto mb-6 shadow-medium border-4 border-accent/20 object-cover"
               />
               <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-                Hieu (Hugh) Vu Tong Minh
+                Hieu Vu Tong Minh
               </h1>
               <p className="text-xl text-foreground/70 mb-6">
-                Cloud Engineer — Passionate About Distributed Systems & Cloud Technologies
+                Platform Engineer - Kubernetes Developer — Passionate About Distributed Systems & Cloud Technologies
               </p>
               <div className="flex gap-3 justify-center mb-6 flex-wrap">
                 <Button
@@ -124,7 +124,7 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                    Software Engineering student passionate about AI, distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
+                    Platform Engineer - Kubernetes Developer passionate about distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
                   </p>
                 </div>
 
