@@ -4,6 +4,26 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "AWS Quiz Pro (SAA-C03 Practice App)",
+      description: "Practice web app for AWS Solutions Architect Associate (SAA-C03) with hundreds of questions, explanations, and domain grouping. Built for fast study loops with instant feedback and review of missed questions.",
+      tags: ["React", "TypeScript", "Vite", "AWS", "Quiz", "Exam Prep"],
+      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
+      featured: false,
+      githubUrl: "https://github.com/vtmhieu/aws-quizapp",
+      liveUrl: "https://vtmhieu.github.io/aws-quizapp/",
+      details: [
+        "Built a multiple-choice quiz experience supporting single-answer and multi-answer questions",
+        "Implemented instant feedback with explanations and end-of-quiz review of incorrect answers",
+        "Grouped questions into the 4 official SAA-C03 domains for structured practice",
+        "Optimized UI for quick iteration: answer, learn, and retry",
+      ],
+      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+      results: [
+        "Created a focused study tool to systematically practice for AWS SAA-C03",
+        "Enabled faster learning with immediate scoring and detailed explanations",
+      ],
+    },
+    {
       title: "Backup & Restore Operator for OpenStack",
       description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
       tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
