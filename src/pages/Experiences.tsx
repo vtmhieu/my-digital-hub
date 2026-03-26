@@ -7,26 +7,27 @@ const Experiences = () => {
       company: "FPT Smart Cloud",
       position: "Cloud Platform Engineer",
       period: "Aug 2023 – Aug 2025",
-      description: "Core engineer in the Managed FPT Kubernetes Engine (M-FKE) team, developing large-scale distributed control-plane components powering 500+ production Kubernetes clusters across multi-site environments in Vietnam and Japan.",
+      description: "Core engineer at a public cloud provider, building the Managed FPT Kubernetes Engine (M-FKE). Engineered the underlying control-plane infrastructure to provide Kubernetes as a managed service (similar to AWS EKS) to 100+ enterprise customers, powering 500+ customer clusters across Vietnam and Japan.",
       achievements: [
-        "Designed and implemented Kubernetes reconciliation and operator patterns to automate cluster lifecycle management",
-        "Developed control-plane controllers (CCM, MCM) integrating with OpenStack and VMware",
-        "Built autoscaling and cluster hibernation workflows reducing operational cost by up to 30%",
-        "Delivered quarterly Kubernetes upgrades (up to v1.32)",
-        "Built end-to-end observability using Prometheus, Loki, Grafana",
-        "Designed multi-zone control-plane ingress with zero-downtime rollout",
-        "Developed L4/L7 load-balancing (Proxy Protocol, HTTPS routing) and integrated Cilium/eBPF networking",
-        "Built a Kubernetes Operator for automated backup/restore of cluster state and persistent volumes",
-        "Implemented private-cluster endpoint architecture, Trivy scanning, and Falco runtime monitoring"
+        "Owned and engineered a Kubebuilder-based Kubernetes Operator from the ground up to automate persistent volume (PVC) backups and cluster-state recovery. Architected custom CRDs and complex reconciliation loops to orchestrate cron-scheduled snapshots, enforce retention policies, and manage on-demand restoration across OpenStack shoot clusters, directly unlocking contracts with compliance-heavy clients (Go, Kubebuilder, Cinder CSI, etcd).",
+        "Engineered cluster hibernation workflows within the M-FKE control plane, automating node scaling to zero and reducing compute overhead costs by 30% for cost-conscious enterprise clients. (Go, Kubernetes, OpenStack)",
+        "Orchestrated the refactoring of Gardener-based MCM/CCM with Terraform, automating hybrid-cloud lifecycle management across OpenStack and VMware vSphere while reducing VM cluster join times by 20%. (Go, Terraform, Gardener)",
+        "Integrated Cilium (eBPF-based networking) and implemented Layer 4/Layer 7 load balancing to meet strict enterprise security requirements, providing customers with multi-zone high availability and advanced network policies (Cilium, eBPF, Proxy Protocol).",
+        "Orchestrated zero-downtime quarterly Kubernetes upgrades (up to v1.32) across multi-site environments, maintaining continuous platform stability for our client base (Kubernetes, GitOps, CRDs).",
+        "Partnered with enterprise customers to migrate their staging and production environments from AWS to the Managed FPT Kubernetes Engine, ensuring minimal downtime and seamless architectural transitions (AWS, Kubernetes, Helm, Terraform)."
       ],
-      skills: ["Kubernetes", "Operators", "OpenStack", "VMware", "Go", "Python", "Terraform", "Ansible", "ArgoCD", "Helm", "Prometheus", "Grafana", "Loki", "Cilium", "Trivy", "Falco"]
+      skills: ["Go", "Kubernetes", "Operators", "OpenStack", "VMware", "Terraform", "Cilium", "eBPF", "Prometheus", "Grafana", "Loki", "Docker"]
     },
     {
       company: "Viettel Cyber Security",
       position: "Backend Developer Intern",
       period: "Jun 2022 – Nov 2022",
-      description: "Selected for the competitive VCS Talent Program. Developed distributed backend microservices and gained experience with enterprise-grade security and large-scale system design.",
-      skills: ["Go", "Backend Development", "Microservices", "Distributed Systems"]
+      description: "Selected for the competitive VCS Talent Program.",
+      achievements: [
+        "Created and launched a backend application to manage internal company servers, providing a centralized system for tracking and managing infrastructure resources (Go, PostgreSQL, Docker).",
+        "Implemented role-based access control (RBAC) and secure RESTful APIs to manage user permissions, and containerized the application services to ensure consistent deployment (Docker, REST APIs)."
+      ],
+      skills: ["Go", "PostgreSQL", "Docker", "REST APIs", "RBAC"]
     },
   ];
 

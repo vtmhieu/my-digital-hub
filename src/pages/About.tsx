@@ -8,32 +8,20 @@ import avatarImage from "@/assets/avatar.png";
 const About = () => {
   const skillCategories = [
     {
-      category: "Programming & Systems",
-      skills: ["Go (primary)", "Python", "Bash", "Linux systems", "Concurrency", "Distributed algorithms", "Erlang-style actor model"]
+      category: "Languages",
+      skills: ["Go", "Python", "Rust", "Bash", "Erlang/OTP"]
     },
     {
-      category: "Cloud-Native & Distributed Systems",
-      skills: ["Kubernetes (control-plane internals)", "Operators/CRDs", "Reconciliation loops", "Controller-runtime", "Multi-cluster management", "Service mesh concepts", "Cilium/eBPF"]
+      category: "Cloud & Infrastructure",
+      skills: ["Kubernetes (Operators/CRDs)", "OpenStack", "VMware vSphere", "Terraform", "Docker", "Linux"]
     },
     {
-      category: "Cloud Infrastructure",
-      skills: ["OpenStack", "VMware vSphere", "Cluster provisioning", "Autoscaling", "Node lifecycle management"]
+      category: "Tools & Databases",
+      skills: ["Prometheus", "Grafana", "Loki", "PostgreSQL", "MySQL", "MongoDB", "Redis", "etcd", "Git", "CI/CD"]
     },
     {
-      category: "Networking & Security",
-      skills: ["L4/L7 load balancing", "Network policies", "RBAC", "Proxy Protocol", "Runtime security (Falco)", "Image scanning (Trivy)"]
-    },
-    {
-      category: "Observability & Reliability",
-      skills: ["Prometheus", "Grafana", "Loki"]
-    },
-    {
-      category: "Data & AI Systems",
-      skills: ["Apache Spark/Flink (batch/stream processing)", "Clustering/Classification", "Association rule mining", "Multi-agent systems (GAMA)"]
-    },
-    {
-      category: "Databases & State",
-      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "etcd"]
+      category: "Core Competencies",
+      skills: ["Distributed Systems Design", "Cloud-Native Architecture", "Networking (eBPF, Cilium)", "Backend Engineering"]
     }
   ];
 
@@ -124,7 +112,7 @@ const About = () => {
                 <div>
                   <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Summary</h2>
                   <p className="text-foreground/80 leading-relaxed">
-                    Platform Engineer - Kubernetes Developer passionate about distributed systems, and cloud-native technologies. I have hands-on experience building Kubernetes control-plane components, designing automation with Operators/CRDs, and working with multi-cloud infrastructure using Go and open-source tooling. I enjoy solving complex system problems and contributing to high-impact engineering environments. Currently pursuing an MSc in Software Engineering of Distributed Systems at KTH, I am eager to apply my skills and curiosity to enabling scalable AI and cloud solutions.
+                    Platform Engineer with expertise in Kubernetes and cloud infrastructure, delivering managed services to 100+ enterprise customers. Skilled in automation with Operators/CRDs and building reliable, scalable distributed systems. Available for full-time roles from June 2026.
                   </p>
                 </div>
 
@@ -134,16 +122,26 @@ const About = () => {
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">MSc in Software Engineering of Distributed Systems</h3>
                       <p className="text-foreground/70">KTH Royal Institute of Technology • 2025 – Now</p>
-                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Courses: Distributed Systems, Data Mining, Distributed AI and Intelligence Agents, Introduction to High Performance Computing.</p>
+                      <p className="text-foreground/60 text-sm mt-1">Stockholm, Sweden — Relevant Coursework: Advanced Distributed Systems (Rust, Erlang/OTP), Data Mining (Python)</p>
                     </div>
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">BSc in Electronics and Telecommunications</h3>
                       <p className="text-foreground/70">Hanoi University of Science and Technology • 2019 – 2023</p>
-                      <p className="text-foreground/60 text-sm mt-1">GPA: 3.58/4.0 — Ranked first in graduation thesis defense (9.5/10)</p>
+                      <p className="text-foreground/60 text-sm mt-1">GPA: 3.58/4.0 — Ranked 1st in the graduation thesis defense (9.5/10)</p>
                     </div>
                     <div className="border-l-4 border-accent pl-4">
                       <h3 className="font-semibold text-lg">Physics Specialized Student</h3>
                       <p className="text-foreground/70">High School for Gifted Students – HNUE • 2016 – 2019</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h2 className="text-2xl font-serif font-bold mb-4 text-accent">Certifications</h2>
+                  <div className="space-y-4">
+                    <div className="border-l-4 border-accent pl-4">
+                      <h3 className="font-semibold text-lg">AWS Certified Solutions Architect – Associate (SAA-C03)</h3>
+                      <p className="text-foreground/70">Amazon Web Services</p>
                     </div>
                   </div>
                 </div>
