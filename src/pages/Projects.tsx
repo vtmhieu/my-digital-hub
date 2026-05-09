@@ -10,6 +10,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
       featured: true,
       githubUrl: "https://github.com/vtmhieu/prototype-agent",
+      liveUrl: "https://prototype-agent-two.vercel.app/",
       details: [
         "Built a full-stack Next.js app where users describe a UI in plain English and receive a live HTML prototype in ~30 seconds",
         "Integrated Google Gemini API to generate structured plans and self-contained HTML from natural language prompts",
