@@ -4,6 +4,30 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "Prototype Agent",
+      description: "AI-powered web app that converts plain-English UI descriptions into live, interactive HTML prototypes in ~30 seconds. Built with Next.js, Supabase, and Google Gemini — fully private per-user with a split-pane live editor.",
+      tags: ["Next.js", "TypeScript", "Supabase", "Gemini", "AI", "Vercel", "Tailwind CSS"],
+      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+      featured: true,
+      githubUrl: "https://github.com/vtmhieu/prototype-agent",
+      details: [
+        "Built a full-stack Next.js app where users describe a UI in plain English and receive a live HTML prototype in ~30 seconds",
+        "Integrated Google Gemini API to generate structured plans and self-contained HTML from natural language prompts",
+        "Implemented GitHub and Google OAuth via Supabase with Row Level Security enforcing strict per-user data isolation",
+        "Uploaded generated HTML to Supabase private Storage under user-scoped paths and served with session + ownership validation",
+        "Built a split-pane editor with live iframe preview, AI chat sidebar for modifications, and auto-save every 3 seconds",
+        "Designed ownership-enforced prototype URLs — no shareable links, prototypes only load for authenticated owners",
+        "Deployed on Vercel with zero cost at scale: free tier covers up to 500 monthly prototypes across 50 users",
+      ],
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Google Gemini API", "Vercel", "Row Level Security", "OAuth"],
+      results: [
+        "Delivered UI prototypes from plain-English descriptions in under 30 seconds end-to-end",
+        "Enforced complete user privacy with RLS on all tables and private Supabase Storage buckets",
+        "Enabled iterative editing with live preview and AI-assisted modification in a single interface",
+        "Achieved near-zero infrastructure cost with free-tier services covering realistic usage volumes",
+      ],
+    },
+    {
       title: "AWS Quiz Pro (SAA-C03 Practice App)",
       description: "Practice web app for AWS Solutions Architect Associate (SAA-C03) with hundreds of questions, explanations, and domain grouping. Built for fast study loops with instant feedback and review of missed questions.",
       tags: ["React", "TypeScript", "Vite", "AWS", "Quiz", "Exam Prep"],
