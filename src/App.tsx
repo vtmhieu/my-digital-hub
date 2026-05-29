@@ -10,13 +10,14 @@ import Experiences from "./pages/Experiences";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
+const routerBasename = window.location.hostname === "vtmhieu.github.io" ? "/my-digital-hub" : "/";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />

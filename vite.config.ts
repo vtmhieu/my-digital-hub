@@ -7,8 +7,8 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === "production";
 
   return {
-    // Base path - use "/" for root deployment (S3/CloudFront)
-    base: "/",
+    // Relative assets work from both the GitHub project URL and the custom domain root.
+    base: "./",
     
     server: {
       host: "::",

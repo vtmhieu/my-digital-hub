@@ -8,7 +8,9 @@
       (function () {
         var location = window.location;
         var route = location.pathname + location.search + location.hash;
-        var target = location.origin + "/?gh-pages-redirect=" + encodeURIComponent(route);
+        var projectPath = "/my-digital-hub";
+        var basePath = route.indexOf(projectPath + "/") === 0 ? projectPath + "/" : "/";
+        var target = location.origin + basePath + "?gh-pages-redirect=" + encodeURIComponent(route);
         location.replace(target);
       })();
     </script>
