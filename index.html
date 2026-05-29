@@ -27,6 +27,19 @@
 
   <body>
     <div id="root"></div>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var redirect = params.get("gh-pages-redirect");
+
+        if (!redirect) {
+          return;
+        }
+
+        var route = redirect.charAt(0) === "/" ? redirect : "/" + redirect;
+        window.history.replaceState(null, "", route);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

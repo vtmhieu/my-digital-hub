@@ -14,46 +14,43 @@ This project is built with:
 
 ## How can I deploy this project?
 
-This project is **optimized for AWS S3 + CloudFront deployment** with automated CI/CD. See deployment guides below.
+This project is now configured for **GitHub Pages** with automated deployment from the `main` branch.
 
-### 🚀 Quick Deploy
+### Quick Deploy
 
-**Option 1: GitHub Actions (Recommended)**
 ```bash
 git push origin main
 ```
-- Automatic build and deployment
-- Configured and ready to use
-- See [README_DEPLOYMENT.md](./README_DEPLOYMENT.md) for quick start
 
-**Option 2: Manual Script**
-```bash
-./aws-deploy.sh
-```
-- One-command deployment
-- Requires AWS CLI and `.env` file
+- GitHub Actions builds the Vite app
+- The generated `dist/` folder is deployed to GitHub Pages
+- The custom domain is configured through `public/CNAME`
+- React Router direct links are handled through the GitHub Pages fallback
 
-### 📚 Deployment Guides
+See [DEPLOYMENT_GITHUB_PAGES.md](./DEPLOYMENT_GITHUB_PAGES.md) for the full setup steps.
 
-- **[README_DEPLOYMENT.md](./README_DEPLOYMENT.md)** - Quick start guide (S3 + CloudFront)
-- **[DEPLOYMENT_S3_CLOUDFRONT.md](./DEPLOYMENT_S3_CLOUDFRONT.md)** - Complete S3/CloudFront guide
-- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - All deployment options (Amplify, S3, CodePipeline)
+### Legacy AWS Guides
 
-### ⚙️ Project Optimizations
+The old AWS deployment guides are still in the repository for reference, but AWS is no longer the primary deployment target.
 
-This project is structured for optimal S3/CloudFront deployment:
-- ✅ Code splitting for better caching
-- ✅ Asset hashing for cache busting
-- ✅ Optimized build configuration
-- ✅ Automated CI/CD pipeline
-- ✅ React Router support configured
+- **[README_DEPLOYMENT.md](./README_DEPLOYMENT.md)** - Previous S3 + CloudFront quick start
+- **[DEPLOYMENT_S3_CLOUDFRONT.md](./DEPLOYMENT_S3_CLOUDFRONT.md)** - Previous S3/CloudFront guide
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Previous AWS deployment options
 
-All configurations are included:
-- `.github/workflows/deploy.yml` - GitHub Actions CI/CD
+### Project Optimizations
+
+This project is structured for static hosting on GitHub Pages:
+- Code splitting for better caching
+- Asset hashing for cache busting
+- Optimized Vite build configuration
+- Automated GitHub Pages deployment
+- React Router fallback configured for direct links
+
+Key configurations:
+- `.github/workflows/deploy.yml` - GitHub Pages CI/CD
+- `public/CNAME` - Custom domain configuration
+- `public/404.html` - GitHub Pages route fallback
 - `vite.config.ts` - Optimized build config
-- `aws-deploy.sh` - Manual deployment script
-- `amplify.yml` - AWS Amplify config (alternative)
-- `buildspec.yml` - AWS CodeBuild config (alternative)
 
 ## Local Development
 
@@ -77,4 +74,4 @@ I'm using domain `hieuvtm.site` to access this site.
 
 ### Domain Setup
 
-For complete instructions on buying a domain and connecting it to your AWS deployment, see [DOMAIN_SETUP.md](./DOMAIN_SETUP.md).
+For complete instructions on connecting the domain to GitHub Pages, see [DEPLOYMENT_GITHUB_PAGES.md](./DEPLOYMENT_GITHUB_PAGES.md).

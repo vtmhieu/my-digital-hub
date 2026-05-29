@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="robots" content="noindex" />
+    <title>Redirecting...</title>
+    <script>
+      (function () {
+        var location = window.location;
+        var route = location.pathname + location.search + location.hash;
+        var target = location.origin + "/?gh-pages-redirect=" + encodeURIComponent(route);
+        location.replace(target);
+      })();
+    </script>
+  </head>
+  <body>
+    Redirecting...
+  </body>
+</html>
