@@ -17,6 +17,8 @@ This project is configured to deploy the Vite production build to GitHub Pages.
 4. Under `Build and deployment`, set `Source` to `GitHub Actions`.
 5. Wait for the `Deploy to GitHub Pages` workflow to finish.
 
+If the workflow fails in the deploy step with `Failed to create deployment (status: 404)`, GitHub Pages is not enabled for the repository yet. Recheck `Settings` > `Pages` and make sure `Source` is set to `GitHub Actions`, then rerun the failed workflow.
+
 ## Domain setup
 
 The current custom domain is:
