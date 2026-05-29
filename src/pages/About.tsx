@@ -92,7 +92,7 @@ const About = () => {
                 >
                   <a href="https://www.hieuvtm.site" target="_blank" rel="noopener noreferrer">
                     <Globe className="w-4 h-4 mr-2" />
-                    hieuvtm.site
+                    www.hieuvtm.site
                   </a>
                 </Button>
               </div>

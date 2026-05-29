@@ -5,7 +5,7 @@ This project is configured to deploy the Vite production build to GitHub Pages.
 ## What is already configured
 
 - `.github/workflows/deploy.yml` builds the app and deploys `dist/` to GitHub Pages.
-- `public/CNAME` sets the custom domain to `hieuvtm.site`.
+- `public/CNAME` sets the custom domain to `www.hieuvtm.site`.
 - `public/404.html` and the redirect script in `index.html` keep React Router routes working on direct visits and refreshes.
 - `vite.config.ts` uses `base: "/"`, which is correct for a custom domain.
 
@@ -24,12 +24,12 @@ If the workflow fails in the deploy step with `Failed to create deployment (stat
 The current custom domain is:
 
 ```txt
-hieuvtm.site
+www.hieuvtm.site
 ```
 
 If you want a different domain, update `public/CNAME` with only the new domain name.
 
-For an apex/root domain such as `hieuvtm.site`, add these DNS `A` records at your domain provider:
+For the apex/root domain `hieuvtm.site`, keep these DNS `A` records so GitHub Pages can redirect it to `www.hieuvtm.site`:
 
 ```txt
 185.199.108.153
@@ -38,7 +38,7 @@ For an apex/root domain such as `hieuvtm.site`, add these DNS `A` records at you
 185.199.111.153
 ```
 
-For `www.hieuvtm.site`, add this DNS `CNAME` record:
+For the primary domain `www.hieuvtm.site`, add this DNS `CNAME` record:
 
 ```txt
 www -> <your-github-username>.github.io
@@ -51,8 +51,8 @@ After DNS is active, go back to `Settings` > `Pages` and enable `Enforce HTTPS`.
 After deployment, test:
 
 ```txt
-https://hieuvtm.site/
-https://hieuvtm.site/about
-https://hieuvtm.site/projects
-https://hieuvtm.site/experiences
+https://www.hieuvtm.site/
+https://www.hieuvtm.site/about
+https://www.hieuvtm.site/projects
+https://www.hieuvtm.site/experiences
 ```

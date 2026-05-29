@@ -70,7 +70,7 @@ For detailed local development instructions, see [LOCAL_DEVELOPMENT.md](./LOCAL_
 
 ## Domain
 
-I'm using domain `hieuvtm.site` to access this site.
+I'm using domain `www.hieuvtm.site` to access this site.
 
 ### Domain Setup
 
