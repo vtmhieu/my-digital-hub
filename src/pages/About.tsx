@@ -70,9 +70,9 @@ const About = () => {
                   size="sm"
                   asChild
                 >
-                  <a href="tel:+84961596635">
+                  <a href="tel:+46764574103">
                     <Phone className="w-4 h-4 mr-2" />
-                    +84 961 596 635
+                    +46 764574103
                   </a>
                 </Button>
                 <Button
@@ -80,7 +80,7 @@ const About = () => {
                   size="sm"
                   asChild
                 >
-                  <a href="https://wa.me/84961596635" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/46764574103" target="_blank" rel="noopener noreferrer">
                     <MessageCircle className="w-4 h-4 mr-2" />
                     WhatsApp
                   </a>
