@@ -29,6 +29,10 @@ git push origin main
 
 See [DEPLOYMENT_GITHUB_PAGES.md](./DEPLOYMENT_GITHUB_PAGES.md) for the full setup steps.
 
+## Blog
+
+The blog is source-controlled. Posts are edited in `src/content/blogPosts.ts`, so only repository writers can publish changes. See [BLOG_AUTHORING.md](./BLOG_AUTHORING.md).
+
 ### Legacy AWS Guides
 
 The old AWS deployment guides are still in the repository for reference, but AWS is no longer the primary deployment target.
