@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Download, Github, Linkedin, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowRight, Download, Github, Linkedin, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 import avatarImage from "@/assets/avatar.png";
 
@@ -89,24 +89,12 @@ const About = () => {
                     vtmhieu111@gmail.com
                   </a>
                 </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <a href="tel:+46764574103">
-                    <Phone className="w-4 h-4 mr-2" />
-                    +46 764574103
-                  </a>
-                </Button>
-                <Button variant="outline" size="sm" asChild>
-                  <a href="https://wa.me/46764574103" target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="w-4 h-4 mr-2" />
-                    WhatsApp
-                  </a>
-                </Button>
               </div>
               <Button
                 className="bg-gradient-warm hover:opacity-90 transition-opacity"
                 asChild
               >
-                <a href="/HieuVTM_CV_110926.pdf" download="HieuVTM_CV_110926.pdf">
+                <a href="/HieuVu_CV.pdf" download="HieuVu_CV.pdf">
                   <Download className="w-4 h-4 mr-2" />
                   Download CV
                 </a>

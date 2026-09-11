@@ -302,7 +302,6 @@ const Projects = () => {
       description: "Designed adaptive octree partitioning for massive glTF datasets. Improved rendering and memory efficiency for 3D city models.",
       tags: ["Python", "C++", "CesiumJS", "3D Graphics", "Bachelor Thesis", "HUST"],
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      reportUrl: "/VuTongMinhHieu_DATN_thaygui.pdf",
       details: [
         "Designed adaptive octree partitioning algorithm for 3D tile datasets",
         "Optimized partitioning for massive glTF datasets",
