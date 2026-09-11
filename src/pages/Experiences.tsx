@@ -5,18 +5,18 @@ const Experiences = () => {
   const experiences = [
     {
       company: "FPT Smart Cloud",
-      position: "Cloud Platform Engineer",
+      position: "Cloud Platform Engineer, Founding Platform Team",
       period: "Aug 2023 – Aug 2025",
-      description: "Core engineer at a public cloud provider, building the Managed FPT Kubernetes Engine (M-FKE). Engineered the underlying control-plane infrastructure to provide Kubernetes as a managed service (similar to AWS EKS) to 100+ enterprise customers, powering 500+ customer clusters across Vietnam and Japan.",
+      description: "Founding engineer in a 6-person team that built the Managed FPT Kubernetes Engine (M-FKE), a managed Kubernetes service similar to AWS EKS. Built and operated the Kubernetes-on-Kubernetes control plane behind 500+ customer clusters across Vietnam and Japan, running on OpenStack and VMware vSphere.",
       achievements: [
+        "Built and operated the Kubernetes-on-Kubernetes control plane behind 500+ customer clusters on OpenStack and VMware vSphere: VM provisioning, cluster bootstrap, CIDR and security groups, API server exposure, and Terraform-based hybrid-cloud provisioning for Gardener MCM/CCM.",
+        "Built the cluster hibernate and wake-up workflow: worker nodes scale to zero while etcd state, PVCs, and Services are kept, and the cluster is restored on demand. Reduced infrastructure cost by 30% for enterprise customers. (Go, Kubernetes, OpenStack)",
+        "Extended the Cloud Controller Manager to provision L4/L7 load balancers for LoadBalancer Services, with Proxy Protocol and multi-zone high availability. Added Cilium/eBPF as a self-service CNI option at cluster creation.",
         "Owned and engineered a Kubebuilder-based Kubernetes Operator from the ground up to automate persistent volume (PVC) backups and cluster-state recovery. Architected custom CRDs and complex reconciliation loops to orchestrate cron-scheduled snapshots, enforce retention policies, and manage on-demand restoration across OpenStack shoot clusters, directly unlocking contracts with compliance-heavy clients (Go, Kubebuilder, Cinder CSI, etcd).",
-        "Engineered cluster hibernation workflows within the M-FKE control plane, automating node scaling to zero and reducing compute overhead costs by 30% for cost-conscious enterprise clients. (Go, Kubernetes, OpenStack)",
-        "Orchestrated the refactoring of Gardener-based MCM/CCM with Terraform, automating hybrid-cloud lifecycle management across OpenStack and VMware vSphere while reducing VM cluster join times by 20%. (Go, Terraform, Gardener)",
-        "Integrated Cilium (eBPF-based networking) and implemented Layer 4/Layer 7 load balancing to meet strict enterprise security requirements, providing customers with multi-zone high availability and advanced network policies (Cilium, eBPF, Proxy Protocol).",
-        "Orchestrated zero-downtime quarterly Kubernetes upgrades (up to v1.32) across multi-site environments, maintaining continuous platform stability for our client base (Kubernetes, GitOps, CRDs).",
+        "Ran quarterly zero-downtime Kubernetes upgrades (up to v1.32) across multi-site environments, maintaining continuous platform stability for our client base (Kubernetes, GitOps, CRDs).",
         "Partnered with enterprise customers to migrate their staging and production environments from AWS to the Managed FPT Kubernetes Engine, ensuring minimal downtime and seamless architectural transitions (AWS, Kubernetes, Helm, Terraform)."
       ],
-      skills: ["Go", "Kubernetes", "Operators", "OpenStack", "VMware", "Terraform", "Cilium", "eBPF", "Prometheus", "Grafana", "Loki", "Docker"]
+      skills: ["Go", "Kubernetes", "Operators", "Kubebuilder", "Gardener", "OpenStack", "VMware vSphere", "Terraform", "Cilium", "eBPF", "etcd", "Prometheus", "Grafana", "Loki", "Docker"]
     },
     {
       company: "Viettel Cyber Security",

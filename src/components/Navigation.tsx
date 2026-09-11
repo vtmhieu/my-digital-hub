@@ -4,8 +4,7 @@ import { Button } from "./ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 const navItems = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
+  { to: "/", label: "About" },
   { to: "/projects", label: "Projects" },
   { to: "/experiences", label: "Experiences" },
   { to: "/blog", label: "Blog" },

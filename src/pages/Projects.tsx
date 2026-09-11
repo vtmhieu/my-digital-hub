@@ -4,6 +4,77 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "KV-Cache-Aware LLM Serving",
+      description: "Benchmarked a vLLM + LMCache serving stack to measure how local KV-cache size affects time-to-first-token and end-to-end latency, and recovered a request's source document from its cached KV tensors.",
+      tags: ["Python", "vLLM", "LMCache", "LLM Serving", "ML Systems", "KTH"],
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
+      featured: true,
+      details: [
+        "Built the request generator and benchmark runner for a vLLM + LMCache serving stack (team of 4)",
+        "Measured how local KV-cache size affects time-to-first-token and end-to-end latency across workloads",
+        "Wrote a pipeline that identifies a request's source document from its cached KV tensors after inference (PCA + KMeans)",
+        "Analyzed cache hit behaviour to explain the latency differences between cache configurations"
+      ],
+      technologies: ["Python", "vLLM", "LMCache", "PCA", "KMeans", "scikit-learn"],
+      results: [
+        "Quantified the effect of local KV-cache size on TTFT and end-to-end latency",
+        "Recovered a request's source document from cached KV tensors with NMI 1.00",
+        "Produced a reusable benchmark harness for KV-cache-aware serving experiments"
+      ]
+    },
+    {
+      title: "Parallel Electromagnetic Wave Simulation (FDTD)",
+      description: "Parallelized an FDTD electromagnetic solver with MPI domain decomposition and halo exchange, reaching 14.8x speedup at 92% efficiency on 16 cores of the Dardel supercomputer.",
+      tags: ["C", "MPI", "OpenMP", "HPC", "Parallel Computing", "KTH"],
+      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
+      featured: true,
+      details: [
+        "Parallelized an FDTD solver with MPI domain decomposition and halo exchange (team of 3)",
+        "Ran and profiled the solver on the Dardel supercomputer",
+        "Compared the MPI version against OpenMP, hybrid, and GPU-offload implementations",
+        "Used perf to locate bottlenecks and guide optimization of the communication pattern"
+      ],
+      technologies: ["C", "MPI", "OpenMP", "GPU Offload", "perf", "Dardel (PDC)"],
+      results: [
+        "Reached 14.8x speedup at 92% parallel efficiency on 16 cores",
+        "Produced a side-by-side comparison of MPI, OpenMP, hybrid, and GPU-offload strategies"
+      ]
+    },
+    {
+      title: "Deadline-Ordered Consensus on OmniPaxos",
+      description: "Added Nezha-style deadline ordering to the OmniPaxos key-value store, including a clock model with drift and uncertainty, a deadline-ordered early buffer, and an adaptive deadline based on 95th-percentile delay.",
+      tags: ["Rust", "OmniPaxos", "Consensus", "Distributed Systems", "KTH"],
+      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
+      details: [
+        "Added Nezha-style deadline ordering to the OmniPaxos key-value store (team of 4)",
+        "Built the clock model covering drift and uncertainty between replicas",
+        "Implemented the deadline-ordered early buffer for incoming requests",
+        "Designed an adaptive deadline derived from the 95th-percentile observed delay",
+        "Benchmarked how clock quality affects latency and the fast-path ratio"
+      ],
+      technologies: ["Rust", "OmniPaxos", "Nezha", "Distributed Consensus", "Clock Synchronization"],
+      results: [
+        "Showed how clock quality drives end-to-end latency and fast-path ratio",
+        "Delivered an adaptive deadline mechanism that adjusts to observed network delay"
+      ]
+    },
+    {
+      title: "Multi-Agent Workflow Automation (SSEN Hackathon 2026 Winner)",
+      description: "Winning entry for the Ellipsis VC Challenge at SSEN Hackathon 2026: a multi-agent AI app that automates marketing and finance workflows for one-person companies.",
+      tags: ["AI Agents", "LLM", "Python", "Automation", "Hackathon"],
+      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
+      featured: true,
+      details: [
+        "Built a multi-agent AI application that automates marketing and finance workflows for one-person companies",
+        "Designed agent roles and hand-offs so each workflow step is handled by a specialized agent",
+        "Shipped a working demo within the hackathon timebox"
+      ],
+      technologies: ["LLM Agents", "Multi-Agent Systems", "Python"],
+      results: [
+        "Won the Ellipsis VC Challenge at SSEN Hackathon 2026"
+      ]
+    },
+    {
       title: "Prototype Agent",
       description: "AI-powered web app that converts plain-English UI descriptions into live, interactive HTML prototypes in ~30 seconds. Built with Next.js, Supabase, and Google Gemini — fully private per-user with a split-pane live editor.",
       tags: ["Next.js", "TypeScript", "Supabase", "Gemini", "AI", "Vercel", "Tailwind CSS"],
