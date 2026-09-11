@@ -4,11 +4,39 @@ import { ProjectCard } from "@/components/ProjectCard";
 const Projects = () => {
   const projects = [
     {
+      title: "Backup & Restore Operator for OpenStack",
+      featured: true,
+      description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
+      tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
+      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
+      architectureImage: "/Gemini_Generated_Image_akzgsmakzgsmakzg.png",
+      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
+      docUrl: "https://fptcloud.com/documents/managed-fpt-kubernetes-engine/?doc=backup-restore-vn",
+      details: [
+        "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
+        "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
+        "Developed `PvSnapshotReconciler` to create and manage CSI VolumeSnapshots integrated with OpenStack Cinder APIs",
+        "Implemented `RestorePvcReconciler` for creating new PVCs from snapshots with validation and idempotency handling",
+        "Created `SchedulerSnapshotReconciler` for cron-based automated backups with configurable schedules and time zones",
+        "Implemented retention policies to automatically clean up old snapshots while preserving in-use resources",
+        "Added finalizers, status conditions, and periodic requeue logic using controller-runtime for robust reconciliation",
+        "Built multi-cluster support with dynamic client creation from shoot kubeconfigs for managing remote clusters",
+        "Designed installer distribution system using Kustomize to generate single-file `install.yaml` for easy deployment"
+      ],
+      technologies: ["Kubernetes", "Golang", "Kubebuilder", "Controller-Runtime", "CRDs", "OpenStack Cinder", "CSI", "Kustomize", "Multi-cluster"],
+      results: [
+        "Enabled declarative backup/restore workflows for OpenStack-based Kubernetes clusters using custom resources",
+        "Provided automated snapshot scheduling with cron-like syntax and retention management",
+        "Supported multi-cluster operations for inventory and backup across shoot clusters",
+        "Created production-ready operator scaffold ready for integration with OpenStack/Kubernetes environments",
+        "Designed extensible architecture for implementing custom snapshot and restore flows"
+      ]
+    },
+    {
       title: "KV-Cache-Aware LLM Serving",
       description: "Benchmarked a vLLM + LMCache serving stack to measure how local KV-cache size affects time-to-first-token and end-to-end latency, and recovered a request's source document from its cached KV tensors.",
       tags: ["Python", "vLLM", "LMCache", "LLM Serving", "ML Systems", "KTH"],
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      featured: true,
       details: [
         "Built the request generator and benchmark runner for a vLLM + LMCache serving stack (team of 4)",
         "Measured how local KV-cache size affects time-to-first-token and end-to-end latency across workloads",
@@ -27,7 +55,6 @@ const Projects = () => {
       description: "Parallelized an FDTD electromagnetic solver with MPI domain decomposition and halo exchange, reaching 14.8x speedup at 92% efficiency on 16 cores of the Dardel supercomputer.",
       tags: ["C", "MPI", "OpenMP", "HPC", "Parallel Computing", "KTH"],
       image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
-      featured: true,
       details: [
         "Parallelized an FDTD solver with MPI domain decomposition and halo exchange (team of 3)",
         "Ran and profiled the solver on the Dardel supercomputer",
@@ -63,7 +90,6 @@ const Projects = () => {
       description: "Winning entry for the Ellipsis VC Challenge at SSEN Hackathon 2026: a multi-agent AI app that automates marketing and finance workflows for one-person companies.",
       tags: ["AI Agents", "LLM", "Python", "Automation", "Hackathon"],
       image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-      featured: true,
       details: [
         "Built a multi-agent AI application that automates marketing and finance workflows for one-person companies",
         "Designed agent roles and hand-offs so each workflow step is handled by a specialized agent",
@@ -79,7 +105,6 @@ const Projects = () => {
       description: "AI-powered web app that converts plain-English UI descriptions into live, interactive HTML prototypes in ~30 seconds. Built with Next.js, Supabase, and Google Gemini — fully private per-user with a split-pane live editor.",
       tags: ["Next.js", "TypeScript", "Supabase", "Gemini", "AI", "Vercel", "Tailwind CSS"],
       image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-      featured: true,
       githubUrl: "https://github.com/vtmhieu/prototype-agent",
       liveUrl: "https://prototype-agent-two.vercel.app/",
       details: [
@@ -104,7 +129,6 @@ const Projects = () => {
       description: "Practice web app for AWS Solutions Architect Associate (SAA-C03) with hundreds of questions, explanations, and domain grouping. Built for fast study loops with instant feedback and review of missed questions.",
       tags: ["React", "TypeScript", "Vite", "AWS", "Quiz", "Exam Prep"],
       image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
-      featured: false,
       githubUrl: "https://github.com/vtmhieu/aws-quizapp",
       liveUrl: "https://vtmhieu.github.io/aws-quizapp/",
       details: [
@@ -118,35 +142,6 @@ const Projects = () => {
         "Created a focused study tool to systematically practice for AWS SAA-C03",
         "Enabled faster learning with immediate scoring and detailed explanations",
       ],
-    },
-    {
-      title: "Backup & Restore Operator for OpenStack",
-      description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
-      tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      architectureImage: "/Gemini_Generated_Image_akzgsmakzgsmakzg.png",
-      featured: true,
-      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
-      docUrl: "https://fptcloud.com/documents/managed-fpt-kubernetes-engine/?doc=backup-restore-vn",
-      details: [
-        "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
-        "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
-        "Developed `PvSnapshotReconciler` to create and manage CSI VolumeSnapshots integrated with OpenStack Cinder APIs",
-        "Implemented `RestorePvcReconciler` for creating new PVCs from snapshots with validation and idempotency handling",
-        "Created `SchedulerSnapshotReconciler` for cron-based automated backups with configurable schedules and time zones",
-        "Implemented retention policies to automatically clean up old snapshots while preserving in-use resources",
-        "Added finalizers, status conditions, and periodic requeue logic using controller-runtime for robust reconciliation",
-        "Built multi-cluster support with dynamic client creation from shoot kubeconfigs for managing remote clusters",
-        "Designed installer distribution system using Kustomize to generate single-file `install.yaml` for easy deployment"
-      ],
-      technologies: ["Kubernetes", "Golang", "Kubebuilder", "Controller-Runtime", "CRDs", "OpenStack Cinder", "CSI", "Kustomize", "Multi-cluster"],
-      results: [
-        "Enabled declarative backup/restore workflows for OpenStack-based Kubernetes clusters using custom resources",
-        "Provided automated snapshot scheduling with cron-like syntax and retention management",
-        "Supported multi-cluster operations for inventory and backup across shoot clusters",
-        "Created production-ready operator scaffold ready for integration with OpenStack/Kubernetes environments",
-        "Designed extensible architecture for implementing custom snapshot and restore flows"
-      ]
     },
     {
       title: "Personal Portfolio Website",
