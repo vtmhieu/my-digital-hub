@@ -1,0 +1,373 @@
+export type ProjectGroup = "platform" | "research" | "side";
+
+export type Project = {
+  slug: string;
+  title: string;
+  group: ProjectGroup;
+  description: string;
+  tags: string[];
+  featured?: boolean;
+  /** Headline metric shown on highlight tiles. Only real, reported numbers. */
+  metric?: { value: string; label: string };
+  architectureImage?: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  docUrl?: string;
+  reportUrl?: string;
+  details?: string[];
+  technologies?: string[];
+  results?: string[];
+};
+
+export const projectGroups: { id: ProjectGroup; title: string; blurb: string }[] = [
+  {
+    id: "platform",
+    title: "Platform engineering",
+    blurb: "Production work on Managed FPT Kubernetes Engine at FPT Smart Cloud.",
+  },
+  {
+    id: "research",
+    title: "Distributed and ML systems",
+    blurb: "Coursework and thesis projects at KTH and HUST.",
+  },
+  {
+    id: "side",
+    title: "Side projects and hackathons",
+    blurb: "Things I built to learn, ship, or win.",
+  },
+];
+
+export const projects: Project[] = [
+  {
+    slug: "backup-restore-operator",
+    title: "Backup & Restore Operator for OpenStack",
+    group: "platform",
+    featured: true,
+    description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
+    tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
+    architectureImage: "/projects/backup-restore-architecture.jpg",
+    githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
+    docUrl: "https://fptcloud.com/documents/managed-fpt-kubernetes-engine/?doc=backup-restore-vn",
+    details: [
+      "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
+      "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
+      "Developed `PvSnapshotReconciler` to create and manage CSI VolumeSnapshots integrated with OpenStack Cinder APIs",
+      "Implemented `RestorePvcReconciler` for creating new PVCs from snapshots with validation and idempotency handling",
+      "Created `SchedulerSnapshotReconciler` for cron-based automated backups with configurable schedules and time zones",
+      "Implemented retention policies to automatically clean up old snapshots while preserving in-use resources",
+      "Added finalizers, status conditions, and periodic requeue logic using controller-runtime for robust reconciliation",
+      "Built multi-cluster support with dynamic client creation from shoot kubeconfigs for managing remote clusters",
+      "Designed installer distribution system using Kustomize to generate single-file `install.yaml` for easy deployment",
+    ],
+    technologies: ["Kubernetes", "Golang", "Kubebuilder", "Controller-Runtime", "CRDs", "OpenStack Cinder", "CSI", "Kustomize", "Multi-cluster"],
+    results: [
+      "Enabled declarative backup/restore workflows for OpenStack-based Kubernetes clusters using custom resources",
+      "Provided automated snapshot scheduling with cron-like syntax and retention management",
+      "Supported multi-cluster operations for inventory and backup across shoot clusters",
+      "Created production-ready operator scaffold ready for integration with OpenStack/Kubernetes environments",
+      "Designed extensible architecture for implementing custom snapshot and restore flows",
+    ],
+  },
+  {
+    slug: "kv-cache-llm-serving",
+    title: "KV-Cache-Aware LLM Serving",
+    group: "research",
+    description: "Benchmarked a vLLM + LMCache serving stack to measure how local KV-cache size affects time-to-first-token and end-to-end latency, and recovered a request's source document from its cached KV tensors.",
+    tags: ["Python", "vLLM", "LMCache", "LLM Serving", "ML Systems", "KTH"],
+    metric: { value: "NMI 1.00", label: "Source documents recovered from cached KV tensors" },
+    details: [
+      "Built the request generator and benchmark runner for a vLLM + LMCache serving stack (team of 4)",
+      "Measured how local KV-cache size affects time-to-first-token and end-to-end latency across workloads",
+      "Wrote a pipeline that identifies a request's source document from its cached KV tensors after inference (PCA + KMeans)",
+      "Analyzed cache hit behaviour to explain the latency differences between cache configurations",
+    ],
+    technologies: ["Python", "vLLM", "LMCache", "PCA", "KMeans", "scikit-learn"],
+    results: [
+      "Quantified the effect of local KV-cache size on TTFT and end-to-end latency",
+      "Recovered a request's source document from cached KV tensors with NMI 1.00",
+      "Produced a reusable benchmark harness for KV-cache-aware serving experiments",
+    ],
+  },
+  {
+    slug: "parallel-fdtd",
+    title: "Parallel Electromagnetic Wave Simulation (FDTD)",
+    group: "research",
+    description: "Parallelized an FDTD electromagnetic solver with MPI domain decomposition and halo exchange, reaching 14.8x speedup at 92% efficiency on 16 cores of the Dardel supercomputer.",
+    tags: ["C", "MPI", "OpenMP", "HPC", "Parallel Computing", "KTH"],
+    metric: { value: "14.8x", label: "Speedup at 92% efficiency on 16 cores" },
+    details: [
+      "Parallelized an FDTD solver with MPI domain decomposition and halo exchange (team of 3)",
+      "Ran and profiled the solver on the Dardel supercomputer",
+      "Compared the MPI version against OpenMP, hybrid, and GPU-offload implementations",
+      "Used perf to locate bottlenecks and guide optimization of the communication pattern",
+    ],
+    technologies: ["C", "MPI", "OpenMP", "GPU Offload", "perf", "Dardel (PDC)"],
+    results: [
+      "Reached 14.8x speedup at 92% parallel efficiency on 16 cores",
+      "Produced a side-by-side comparison of MPI, OpenMP, hybrid, and GPU-offload strategies",
+    ],
+  },
+  {
+    slug: "omnipaxos-deadline-ordering",
+    title: "Deadline-Ordered Consensus on OmniPaxos",
+    group: "research",
+    description: "Added Nezha-style deadline ordering to the OmniPaxos key-value store, including a clock model with drift and uncertainty, a deadline-ordered early buffer, and an adaptive deadline based on 95th-percentile delay.",
+    tags: ["Rust", "OmniPaxos", "Consensus", "Distributed Systems", "KTH"],
+    details: [
+      "Added Nezha-style deadline ordering to the OmniPaxos key-value store (team of 4)",
+      "Built the clock model covering drift and uncertainty between replicas",
+      "Implemented the deadline-ordered early buffer for incoming requests",
+      "Designed an adaptive deadline derived from the 95th-percentile observed delay",
+      "Benchmarked how clock quality affects latency and the fast-path ratio",
+    ],
+    technologies: ["Rust", "OmniPaxos", "Nezha", "Distributed Consensus", "Clock Synchronization"],
+    results: [
+      "Showed how clock quality drives end-to-end latency and fast-path ratio",
+      "Delivered an adaptive deadline mechanism that adjusts to observed network delay",
+    ],
+  },
+  {
+    slug: "ssen-hackathon-multi-agent",
+    title: "Multi-Agent Workflow Automation (SSEN Hackathon 2026 Winner)",
+    group: "side",
+    description: "Winning entry for the Ellipsis VC Challenge at SSEN Hackathon 2026: a multi-agent AI app that automates marketing and finance workflows for one-person companies.",
+    tags: ["AI Agents", "LLM", "Python", "Automation", "Hackathon"],
+    details: [
+      "Built a multi-agent AI application that automates marketing and finance workflows for one-person companies",
+      "Designed agent roles and hand-offs so each workflow step is handled by a specialized agent",
+      "Shipped a working demo within the hackathon timebox",
+    ],
+    technologies: ["LLM Agents", "Multi-Agent Systems", "Python"],
+    results: ["Won the Ellipsis VC Challenge at SSEN Hackathon 2026"],
+  },
+  {
+    slug: "prototype-agent",
+    title: "Prototype Agent",
+    group: "side",
+    description: "AI-powered web app that converts plain-English UI descriptions into live, interactive HTML prototypes in ~30 seconds. Built with Next.js, Supabase, and Google Gemini, fully private per-user with a split-pane live editor.",
+    tags: ["Next.js", "TypeScript", "Supabase", "Gemini", "AI", "Vercel", "Tailwind CSS"],
+    githubUrl: "https://github.com/vtmhieu/prototype-agent",
+    liveUrl: "https://prototype-agent-two.vercel.app/",
+    details: [
+      "Built a full-stack Next.js app where users describe a UI in plain English and receive a live HTML prototype in ~30 seconds",
+      "Integrated Google Gemini API to generate structured plans and self-contained HTML from natural language prompts",
+      "Implemented GitHub and Google OAuth via Supabase with Row Level Security enforcing strict per-user data isolation",
+      "Uploaded generated HTML to Supabase private Storage under user-scoped paths and served with session + ownership validation",
+      "Built a split-pane editor with live iframe preview, AI chat sidebar for modifications, and auto-save every 3 seconds",
+      "Designed ownership-enforced prototype URLs: no shareable links, prototypes only load for authenticated owners",
+      "Deployed on Vercel with zero cost at scale: free tier covers up to 500 monthly prototypes across 50 users",
+    ],
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Google Gemini API", "Vercel", "Row Level Security", "OAuth"],
+    results: [
+      "Delivered UI prototypes from plain-English descriptions in under 30 seconds end-to-end",
+      "Enforced complete user privacy with RLS on all tables and private Supabase Storage buckets",
+      "Enabled iterative editing with live preview and AI-assisted modification in a single interface",
+      "Achieved near-zero infrastructure cost with free-tier services covering realistic usage volumes",
+    ],
+  },
+  {
+    slug: "aws-quiz-pro",
+    title: "AWS Quiz Pro (SAA-C03 Practice App)",
+    group: "side",
+    description: "Practice web app for AWS Solutions Architect Associate (SAA-C03) with hundreds of questions, explanations, and domain grouping. Built for fast study loops with instant feedback and review of missed questions.",
+    tags: ["React", "TypeScript", "Vite", "AWS", "Quiz", "Exam Prep"],
+    githubUrl: "https://github.com/vtmhieu/aws-quizapp",
+    liveUrl: "https://vtmhieu.github.io/aws-quizapp/",
+    details: [
+      "Built a multiple-choice quiz experience supporting single-answer and multi-answer questions",
+      "Implemented instant feedback with explanations and end-of-quiz review of incorrect answers",
+      "Grouped questions into the 4 official SAA-C03 domains for structured practice",
+      "Optimized UI for quick iteration: answer, learn, and retry",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
+    results: [
+      "Created a focused study tool to systematically practice for AWS SAA-C03",
+      "Enabled faster learning with immediate scoring and detailed explanations",
+    ],
+  },
+  {
+    slug: "portfolio-website",
+    title: "Personal Portfolio Website",
+    group: "side",
+    description: "Modern, responsive portfolio website showcasing professional experience, projects, and achievements. Built with React and deployed on AWS CloudFront for optimal performance and global availability.",
+    tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "AWS", "CloudFront", "Portfolio"],
+    architectureImage: "/projects/portfolio-architecture.jpg",
+    liveUrl: "https://www.hieuvtm.site",
+    details: [
+      "Designed and developed a modern, responsive portfolio website with React and TypeScript",
+      "Implemented component-based architecture using shadcn/ui and Tailwind CSS for a polished UI",
+      "Built multi-page navigation with React Router for seamless user experience",
+      "Created interactive project cards with detailed dialogs showcasing work and achievements",
+      "Integrated CV download functionality and external links to professional profiles",
+      "Configured AWS S3 + CloudFront deployment for global CDN distribution",
+      "Set up automated CI/CD pipeline with GitHub Actions for seamless deployments",
+      "Optimized build configuration with code splitting and asset hashing for performance",
+      "Implemented responsive design ensuring optimal viewing across all devices",
+    ],
+    technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Router", "AWS S3", "AWS CloudFront", "GitHub Actions", "CI/CD"],
+    results: [
+      "Successfully deployed portfolio website with 99.9% uptime on AWS CloudFront",
+      "Achieved fast page load times with global CDN distribution",
+      "Streamlined deployment process with automated CI/CD pipeline",
+      "Created a professional showcase for CV, projects, and experiences",
+    ],
+  },
+  {
+    slug: "cluster-hibernation",
+    title: "Cluster Hibernation & Resume Automation",
+    group: "platform",
+    description: "Designed workflows to hibernate Kubernetes clusters (scale nodes to 0) and restore on demand using custom controllers. Reduced infrastructure cost for customers by up to 30%.",
+    tags: ["Kubernetes", "Operators", "OpenStack", "Automation", "Cost Optimization"],
+    details: [
+      "Designed and implemented declarative automation workflows using Kubernetes reconciliation patterns",
+      "Developed custom controllers to manage cluster lifecycle (hibernate/resume)",
+      "Implemented scale-to-zero functionality for worker nodes during inactivity",
+      "Created self-service configuration for customers to manage hibernation schedules",
+      "Integrated with OpenStack APIs for VM lifecycle management",
+      "Built monitoring and alerting for hibernation/resume operations",
+    ],
+    technologies: ["Kubernetes", "Golang", "Kubernetes Operators", "CRDs", "OpenStack APIs", "Prometheus", "Grafana"],
+    results: [
+      "Reduced infrastructure costs by up to 30% for customers with intermittent workloads",
+      "Enabled automatic cost optimization without manual intervention",
+      "Improved resource utilization across 500+ customer clusters",
+      "Zero-downtime resume operations with proper health checks",
+    ],
+  },
+  {
+    slug: "kubernetes-upgrades",
+    title: "Automated Kubernetes Version Upgrade System",
+    group: "platform",
+    description: "Built upgrade pipelines to automatically update control-plane and worker nodes in sync with upstream releases. Integrated version compatibility checks and rollback logic across 500+ deployments.",
+    tags: ["Kubernetes", "Automation", "Upgrades", "Version Management", "Rollback"],
+    details: [
+      "Designed automated upgrade pipelines for Kubernetes control-plane and worker nodes",
+      "Implemented version compatibility checks before initiating upgrades",
+      "Built rollback mechanisms with automated health validation",
+      "Created operator-based upgrade orchestration for zero-downtime deployments",
+      "Integrated with community Kubernetes releases (up to v1.32)",
+      "Developed pre-upgrade validation checks and post-upgrade verification",
+      "Automated VM template refreshes and image updates",
+    ],
+    technologies: ["Kubernetes", "Golang", "Kubernetes Operators", "ArgoCD", "Helm", "Terraform", "Ansible"],
+    results: [
+      "Delivered quarterly Kubernetes upgrades aligned with community releases",
+      "Maintained zero-downtime upgrades across 500+ production clusters",
+      "Reduced manual upgrade operations by 95%",
+      "Implemented automated rollback reducing MTTR from hours to minutes",
+      "Ensured security compliance with timely patch updates",
+    ],
+  },
+  {
+    slug: "multi-cloud-networking",
+    title: "Multi-Cloud Networking Enhancements",
+    group: "platform",
+    description: "Extended Machine Controller Manager (MCM) and Load Balancer integrations with Cilium CNI, Proxy Protocol, and multi-zone HA support.",
+    tags: ["Kubernetes", "Cilium", "eBPF", "Networking", "Multi-Cloud", "High Availability"],
+    details: [
+      "Extended Machine Controller Manager (MCM) for multi-cloud node management",
+      "Integrated Cilium CNI for eBPF-based networking and security",
+      "Developed advanced Load Balancer features including Proxy Protocol support",
+      "Implemented Layer 7 HTTPS routing with SSL termination",
+      "Built health check mechanisms for Load Balancer backends",
+      "Designed highly available ingress architecture for kube-apiserver",
+      "Implemented multi-zone failover ensuring resilient control plane operations",
+      "Enhanced network policies and security with eBPF-based enforcement",
+    ],
+    technologies: ["Kubernetes", "Cilium", "eBPF", "Golang", "OpenStack", "VMware", "Network Policies", "Load Balancing"],
+    results: [
+      "Improved network performance with eBPF-based data plane",
+      "Achieved zero-downtime control plane upgrades with multi-zone HA",
+      "Enhanced security with network policy enforcement at kernel level",
+      "Reduced latency with optimized load balancing algorithms",
+      "Enabled seamless multi-cloud networking across OpenStack and VMware",
+    ],
+  },
+  {
+    slug: "distributed-messaging",
+    title: "Distributed Messaging System",
+    group: "research",
+    description: "Built a distributed middleware with replication, failure detection, and logical-clock synchronization. Demonstrated consistency and fault-tolerant message routing.",
+    tags: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection", "KTH"],
+    details: [
+      "Implemented distributed messaging middleware using Erlang/OTP",
+      "Built replication mechanisms for fault tolerance",
+      "Developed failure detection algorithms",
+      "Implemented logical-clock synchronization",
+      "Designed and validated consistency guarantees",
+      "Created fault-tolerant message routing system",
+    ],
+    technologies: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection"],
+    results: [
+      "Demonstrated consistency in distributed message passing",
+      "Achieved fault-tolerant message routing",
+      "Validated system behavior under various failure scenarios",
+    ],
+  },
+  {
+    slug: "big-data-analytics",
+    title: "Big Data Analytics System",
+    group: "research",
+    description: "Developed clustering, classification, and streaming analytics pipelines on large datasets using Apache Spark and Flink.",
+    tags: ["Python", "Apache Spark", "Apache Flink", "Big Data", "Machine Learning", "KTH"],
+    details: [
+      "Implemented clustering algorithms for large-scale data analysis",
+      "Developed classification models for pattern recognition",
+      "Built batch processing pipelines with Apache Spark",
+      "Created streaming analytics with Apache Flink",
+      "Designed data processing workflows for large datasets",
+      "Analyzed and optimized performance of distributed data processing",
+    ],
+    technologies: ["Python", "Apache Spark", "Apache Flink", "Batch Processing", "Stream Processing"],
+    results: [
+      "Successfully processed large-scale datasets",
+      "Implemented efficient clustering and classification pipelines",
+      "Demonstrated real-time streaming analytics capabilities",
+    ],
+  },
+  {
+    slug: "multi-agent-simulation",
+    title: "Multi-Agent Simulation Platform",
+    group: "research",
+    description: "Implemented negotiation, coordination, and decentralized decision-making using agent-based modeling. Analyzed emergent behavior under different agent architectures.",
+    tags: ["GAMA", "Multi-Agent Systems", "Agent-Based Modeling", "AI", "KTH"],
+    details: [
+      "Implemented multi-agent system using GAMA platform",
+      "Developed negotiation protocols between agents",
+      "Built coordination mechanisms for decentralized systems",
+      "Designed agent architectures with different behavioral patterns",
+      "Analyzed emergent behavior in complex systems",
+      "Evaluated performance under various agent configurations",
+    ],
+    technologies: ["GAMA", "Agent-Based Modeling", "Multi-Agent Systems", "Decentralized Decision-Making"],
+    results: [
+      "Demonstrated effective agent negotiation and coordination",
+      "Analyzed emergent behaviors in distributed systems",
+      "Evaluated different agent architectures",
+    ],
+  },
+  {
+    slug: "cesium-3d-tiles",
+    title: "Adaptive Partitioning for Cesium 3D Tiles",
+    group: "research",
+    description: "Designed adaptive octree partitioning for massive glTF datasets. Improved rendering and memory efficiency for 3D city models.",
+    tags: ["Python", "C++", "CesiumJS", "3D Graphics", "Bachelor Thesis", "HUST"],
+    details: [
+      "Designed adaptive octree partitioning algorithm for 3D tile datasets",
+      "Optimized partitioning for massive glTF datasets",
+      "Implemented memory-efficient rendering strategies",
+      "Improved rendering performance for 3D city models",
+      "Developed algorithms to balance detail and performance",
+      "Integrated with CesiumJS for visualization",
+    ],
+    technologies: ["Python", "C++", "CesiumJS", "3D Graphics", "Octree Partitioning", "glTF"],
+    results: [
+      "Improved rendering efficiency for large 3D models",
+      "Reduced memory usage through adaptive partitioning",
+      "Achieved better performance for 3D city model visualization",
+      "Ranked 1st in graduation thesis defense (9.5/10)",
+    ],
+  },
+];
+
+export const getProject = (slug: string) => projects.find((project) => project.slug === slug);

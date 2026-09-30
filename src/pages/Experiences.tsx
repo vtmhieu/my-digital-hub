@@ -1,12 +1,13 @@
-import { Navigation } from "@/components/Navigation";
-import { ExperienceCard } from "@/components/ExperienceCard";
+import { PageHeader, SiteLayout } from "@/components/SiteLayout";
+import { Reveal } from "@/components/Reveal";
+import { Badge } from "@/components/ui/badge";
 
 const Experiences = () => {
   const experiences = [
     {
       company: "FPT Smart Cloud",
       position: "Cloud Platform Engineer, Founding Platform Team",
-      period: "Aug 2023 – Aug 2025",
+      period: "Aug 2023 - Aug 2025",
       description: "Founding engineer in a 6-person team that built the Managed FPT Kubernetes Engine (M-FKE), a managed Kubernetes service similar to AWS EKS. Built and operated the Kubernetes-on-Kubernetes control plane behind 500+ customer clusters across Vietnam and Japan, running on OpenStack and VMware vSphere.",
       achievements: [
         "Built and operated the Kubernetes-on-Kubernetes control plane behind 500+ customer clusters on OpenStack and VMware vSphere: VM provisioning, cluster bootstrap, CIDR and security groups, API server exposure, and Terraform-based hybrid-cloud provisioning for Gardener MCM/CCM.",
@@ -21,7 +22,7 @@ const Experiences = () => {
     {
       company: "Viettel Cyber Security",
       position: "Backend Developer Intern",
-      period: "Jun 2022 – Nov 2022",
+      period: "Jun 2022 - Nov 2022",
       description: "Selected for the competitive VCS Talent Program.",
       achievements: [
         "Created and launched a backend application to manage internal company servers, providing a centralized system for tracking and managing infrastructure resources (Go, PostgreSQL, Docker).",
@@ -32,38 +33,44 @@ const Experiences = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
-      <Navigation />
-      
-      <div className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-4xl">
-          <div className="animate-in fade-in duration-700">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-                Experience
-              </h1>
-              <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-                My professional journey through various roles and companies
-              </p>
-            </div>
+    <SiteLayout>
+      <PageHeader title="Experience" description="My professional journey through various roles and companies" />
 
-            <div className="space-y-6">
-              {experiences.map((exp) => (
-                <ExperienceCard 
-                  key={exp.company} 
-                  company={exp.company}
-                  position={exp.position}
-                  period={exp.period}
-                  description={exp.description}
-                  skills={exp.skills}
-                  achievements={exp.achievements}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
+      <div className="container-page pt-14 md:pt-20">
+        {experiences.map((exp) => (
+          <article key={exp.company} className="grid gap-8 border-t border-border py-12 md:py-16 lg:grid-cols-12 lg:gap-12">
+            <Reveal className="lg:col-span-4">
+              <div className="lg:sticky lg:top-24">
+                <p className="font-mono text-sm text-muted-foreground">{exp.period}</p>
+                <h2 className="mt-3 text-2xl font-semibold tracking-tight md:text-3xl">{exp.company}</h2>
+                <p className="mt-2 text-muted-foreground">{exp.position}</p>
+                <div className="mt-6 flex flex-wrap gap-1.5">
+                  {exp.skills.map((skill) => (
+                    <Badge key={skill} variant="secondary" className="font-normal">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-8" delay={80}>
+              <p className="max-w-[62ch] text-lg leading-relaxed text-foreground/85">{exp.description}</p>
+              <ul className="mt-8 space-y-5">
+                {exp.achievements.map((achievement) => (
+                  <li
+                    key={achievement}
+                    className="max-w-[68ch] border-l-2 border-primary/30 pl-5 leading-relaxed text-muted-foreground"
+                  >
+                    {achievement}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+          </article>
+        ))}
       </div>
-    </div>
+    </SiteLayout>
   );
 };
 

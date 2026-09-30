@@ -48,3 +48,6 @@ export const getPublishedBlogPosts = () =>
 
 export const getBlogPostBySlug = (slug: string) =>
   blogPosts.find((post) => post.slug === slug);
+
+export const formatPostDate = (isoDate: string) =>
+  new Date(isoDate).toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });

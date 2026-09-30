@@ -15,8 +15,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Outfit', 'sans-serif'],
-        serif: ['Crimson Pro', 'serif'],
+        sans: ['"Geist Variable"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono Variable"', 'ui-monospace', 'SFMono-Regular', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -48,6 +48,12 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
+        tint: "hsl(var(--tint))",
+        tone: {
+          DEFAULT: "hsl(var(--tone) / <alpha-value>)",
+          solid: "hsl(var(--tone-solid) / <alpha-value>)",
+          on: "hsl(var(--tone-on) / <alpha-value>)",
+        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
@@ -63,16 +69,12 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
       },
-      backgroundImage: {
-        'gradient-warm': 'var(--gradient-warm)',
-        'gradient-subtle': 'var(--gradient-subtle)',
-      },
       boxShadow: {
         'soft': 'var(--shadow-soft)',
         'medium': 'var(--shadow-medium)',
       },
       transitionTimingFunction: {
-        'smooth': 'var(--transition-smooth)',
+        'out-expo': 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       borderRadius: {
         lg: "var(--radius)",

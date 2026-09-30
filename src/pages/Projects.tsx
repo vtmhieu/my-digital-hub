@@ -1,350 +1,124 @@
-import { Navigation } from "@/components/Navigation";
-import { ProjectCard } from "@/components/ProjectCard";
+import { ArrowUpRight, FileText, Github } from "lucide-react";
+import { PageHeader, SiteLayout } from "@/components/SiteLayout";
+import { ProjectDialog } from "@/components/ProjectDialog";
+import { Reveal } from "@/components/Reveal";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { projectGroups, projects } from "@/content/projects";
+
+const MAX_TAGS = 4;
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "Backup & Restore Operator for OpenStack",
-      featured: true,
-      description: "Kubebuilder-based Kubernetes operator for backing up and restoring PersistentVolumeClaims in OpenStack-based clusters using Cinder CSI. Provides declarative CRDs for PVC inventory, snapshot management, and restore operations across multi-cluster environments.",
-      tags: ["Kubernetes", "Golang", "Kubebuilder", "Operators", "CRDs", "OpenStack", "Cinder CSI"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      architectureImage: "/Gemini_Generated_Image_akzgsmakzgsmakzg.png",
-      githubUrl: "https://github.com/vtmhieu/backup-restore-openstack-mfke",
-      docUrl: "https://fptcloud.com/documents/managed-fpt-kubernetes-engine/?doc=backup-restore-vn",
-      details: [
-        "Designed and implemented a Kubebuilder-based Kubernetes operator with three custom resources: `Pvc`, `PvSnapshot`, and `RestorePvc`",
-        "Built `PvcReconciler` to inventory PVCs in target namespaces across multi-cluster (shoot) environments with periodic refresh",
-        "Developed `PvSnapshotReconciler` to create and manage CSI VolumeSnapshots integrated with OpenStack Cinder APIs",
-        "Implemented `RestorePvcReconciler` for creating new PVCs from snapshots with validation and idempotency handling",
-        "Created `SchedulerSnapshotReconciler` for cron-based automated backups with configurable schedules and time zones",
-        "Implemented retention policies to automatically clean up old snapshots while preserving in-use resources",
-        "Added finalizers, status conditions, and periodic requeue logic using controller-runtime for robust reconciliation",
-        "Built multi-cluster support with dynamic client creation from shoot kubeconfigs for managing remote clusters",
-        "Designed installer distribution system using Kustomize to generate single-file `install.yaml` for easy deployment"
-      ],
-      technologies: ["Kubernetes", "Golang", "Kubebuilder", "Controller-Runtime", "CRDs", "OpenStack Cinder", "CSI", "Kustomize", "Multi-cluster"],
-      results: [
-        "Enabled declarative backup/restore workflows for OpenStack-based Kubernetes clusters using custom resources",
-        "Provided automated snapshot scheduling with cron-like syntax and retention management",
-        "Supported multi-cluster operations for inventory and backup across shoot clusters",
-        "Created production-ready operator scaffold ready for integration with OpenStack/Kubernetes environments",
-        "Designed extensible architecture for implementing custom snapshot and restore flows"
-      ]
-    },
-    {
-      title: "KV-Cache-Aware LLM Serving",
-      description: "Benchmarked a vLLM + LMCache serving stack to measure how local KV-cache size affects time-to-first-token and end-to-end latency, and recovered a request's source document from its cached KV tensors.",
-      tags: ["Python", "vLLM", "LMCache", "LLM Serving", "ML Systems", "KTH"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80",
-      details: [
-        "Built the request generator and benchmark runner for a vLLM + LMCache serving stack (team of 4)",
-        "Measured how local KV-cache size affects time-to-first-token and end-to-end latency across workloads",
-        "Wrote a pipeline that identifies a request's source document from its cached KV tensors after inference (PCA + KMeans)",
-        "Analyzed cache hit behaviour to explain the latency differences between cache configurations"
-      ],
-      technologies: ["Python", "vLLM", "LMCache", "PCA", "KMeans", "scikit-learn"],
-      results: [
-        "Quantified the effect of local KV-cache size on TTFT and end-to-end latency",
-        "Recovered a request's source document from cached KV tensors with NMI 1.00",
-        "Produced a reusable benchmark harness for KV-cache-aware serving experiments"
-      ]
-    },
-    {
-      title: "Parallel Electromagnetic Wave Simulation (FDTD)",
-      description: "Parallelized an FDTD electromagnetic solver with MPI domain decomposition and halo exchange, reaching 14.8x speedup at 92% efficiency on 16 cores of the Dardel supercomputer.",
-      tags: ["C", "MPI", "OpenMP", "HPC", "Parallel Computing", "KTH"],
-      image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&q=80",
-      details: [
-        "Parallelized an FDTD solver with MPI domain decomposition and halo exchange (team of 3)",
-        "Ran and profiled the solver on the Dardel supercomputer",
-        "Compared the MPI version against OpenMP, hybrid, and GPU-offload implementations",
-        "Used perf to locate bottlenecks and guide optimization of the communication pattern"
-      ],
-      technologies: ["C", "MPI", "OpenMP", "GPU Offload", "perf", "Dardel (PDC)"],
-      results: [
-        "Reached 14.8x speedup at 92% parallel efficiency on 16 cores",
-        "Produced a side-by-side comparison of MPI, OpenMP, hybrid, and GPU-offload strategies"
-      ]
-    },
-    {
-      title: "Deadline-Ordered Consensus on OmniPaxos",
-      description: "Added Nezha-style deadline ordering to the OmniPaxos key-value store, including a clock model with drift and uncertainty, a deadline-ordered early buffer, and an adaptive deadline based on 95th-percentile delay.",
-      tags: ["Rust", "OmniPaxos", "Consensus", "Distributed Systems", "KTH"],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-      details: [
-        "Added Nezha-style deadline ordering to the OmniPaxos key-value store (team of 4)",
-        "Built the clock model covering drift and uncertainty between replicas",
-        "Implemented the deadline-ordered early buffer for incoming requests",
-        "Designed an adaptive deadline derived from the 95th-percentile observed delay",
-        "Benchmarked how clock quality affects latency and the fast-path ratio"
-      ],
-      technologies: ["Rust", "OmniPaxos", "Nezha", "Distributed Consensus", "Clock Synchronization"],
-      results: [
-        "Showed how clock quality drives end-to-end latency and fast-path ratio",
-        "Delivered an adaptive deadline mechanism that adjusts to observed network delay"
-      ]
-    },
-    {
-      title: "Multi-Agent Workflow Automation (SSEN Hackathon 2026 Winner)",
-      description: "Winning entry for the Ellipsis VC Challenge at SSEN Hackathon 2026: a multi-agent AI app that automates marketing and finance workflows for one-person companies.",
-      tags: ["AI Agents", "LLM", "Python", "Automation", "Hackathon"],
-      image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&q=80",
-      details: [
-        "Built a multi-agent AI application that automates marketing and finance workflows for one-person companies",
-        "Designed agent roles and hand-offs so each workflow step is handled by a specialized agent",
-        "Shipped a working demo within the hackathon timebox"
-      ],
-      technologies: ["LLM Agents", "Multi-Agent Systems", "Python"],
-      results: [
-        "Won the Ellipsis VC Challenge at SSEN Hackathon 2026"
-      ]
-    },
-    {
-      title: "Prototype Agent",
-      description: "AI-powered web app that converts plain-English UI descriptions into live, interactive HTML prototypes in ~30 seconds. Built with Next.js, Supabase, and Google Gemini — fully private per-user with a split-pane live editor.",
-      tags: ["Next.js", "TypeScript", "Supabase", "Gemini", "AI", "Vercel", "Tailwind CSS"],
-      image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
-      githubUrl: "https://github.com/vtmhieu/prototype-agent",
-      liveUrl: "https://prototype-agent-two.vercel.app/",
-      details: [
-        "Built a full-stack Next.js app where users describe a UI in plain English and receive a live HTML prototype in ~30 seconds",
-        "Integrated Google Gemini API to generate structured plans and self-contained HTML from natural language prompts",
-        "Implemented GitHub and Google OAuth via Supabase with Row Level Security enforcing strict per-user data isolation",
-        "Uploaded generated HTML to Supabase private Storage under user-scoped paths and served with session + ownership validation",
-        "Built a split-pane editor with live iframe preview, AI chat sidebar for modifications, and auto-save every 3 seconds",
-        "Designed ownership-enforced prototype URLs — no shareable links, prototypes only load for authenticated owners",
-        "Deployed on Vercel with zero cost at scale: free tier covers up to 500 monthly prototypes across 50 users",
-      ],
-      technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Supabase", "Google Gemini API", "Vercel", "Row Level Security", "OAuth"],
-      results: [
-        "Delivered UI prototypes from plain-English descriptions in under 30 seconds end-to-end",
-        "Enforced complete user privacy with RLS on all tables and private Supabase Storage buckets",
-        "Enabled iterative editing with live preview and AI-assisted modification in a single interface",
-        "Achieved near-zero infrastructure cost with free-tier services covering realistic usage volumes",
-      ],
-    },
-    {
-      title: "AWS Quiz Pro (SAA-C03 Practice App)",
-      description: "Practice web app for AWS Solutions Architect Associate (SAA-C03) with hundreds of questions, explanations, and domain grouping. Built for fast study loops with instant feedback and review of missed questions.",
-      tags: ["React", "TypeScript", "Vite", "AWS", "Quiz", "Exam Prep"],
-      image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&q=80",
-      githubUrl: "https://github.com/vtmhieu/aws-quizapp",
-      liveUrl: "https://vtmhieu.github.io/aws-quizapp/",
-      details: [
-        "Built a multiple-choice quiz experience supporting single-answer and multi-answer questions",
-        "Implemented instant feedback with explanations and end-of-quiz review of incorrect answers",
-        "Grouped questions into the 4 official SAA-C03 domains for structured practice",
-        "Optimized UI for quick iteration: answer, learn, and retry",
-      ],
-      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-      results: [
-        "Created a focused study tool to systematically practice for AWS SAA-C03",
-        "Enabled faster learning with immediate scoring and detailed explanations",
-      ],
-    },
-    {
-      title: "Personal Portfolio Website",
-      description: "Modern, responsive portfolio website showcasing professional experience, projects, and achievements. Built with React and deployed on AWS CloudFront for optimal performance and global availability.",
-      tags: ["React", "TypeScript", "Vite", "Tailwind CSS", "AWS", "CloudFront", "Portfolio"],
-      image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&q=80",
-      architectureImage:"/Gemini_Generated_Image_24o2cc24o2cc24o2.png",
-      liveUrl: "https://www.hieuvtm.site",
-      details: [
-        "Designed and developed a modern, responsive portfolio website with React and TypeScript",
-        "Implemented component-based architecture using shadcn/ui and Tailwind CSS for a polished UI",
-        "Built multi-page navigation with React Router for seamless user experience",
-        "Created interactive project cards with detailed dialogs showcasing work and achievements",
-        "Integrated CV download functionality and external links to professional profiles",
-        "Configured AWS S3 + CloudFront deployment for global CDN distribution",
-        "Set up automated CI/CD pipeline with GitHub Actions for seamless deployments",
-        "Optimized build configuration with code splitting and asset hashing for performance",
-        "Implemented responsive design ensuring optimal viewing across all devices"
-      ],
-      technologies: ["React", "TypeScript", "Vite", "Tailwind CSS", "shadcn/ui", "React Router", "AWS S3", "AWS CloudFront", "GitHub Actions", "CI/CD"],
-      results: [
-        "Successfully deployed portfolio website with 99.9% uptime on AWS CloudFront",
-        "Achieved fast page load times with global CDN distribution",
-        "Streamlined deployment process with automated CI/CD pipeline",
-        "Created a professional showcase for CV, projects, and experiences"
-      ]
-    },
-    {
-      title: "Cluster Hibernation & Resume Automation",
-      description: "Designed workflows to hibernate Kubernetes clusters (scale nodes to 0) and restore on demand using custom controllers. Reduced infrastructure cost for customers by up to 30%.",
-      tags: ["Kubernetes", "Operators", "OpenStack", "Automation", "Cost Optimization"],
-      image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
-      details: [
-        "Designed and implemented declarative automation workflows using Kubernetes reconciliation patterns",
-        "Developed custom controllers to manage cluster lifecycle (hibernate/resume)",
-        "Implemented scale-to-zero functionality for worker nodes during inactivity",
-        "Created self-service configuration for customers to manage hibernation schedules",
-        "Integrated with OpenStack APIs for VM lifecycle management",
-        "Built monitoring and alerting for hibernation/resume operations"
-      ],
-      technologies: ["Kubernetes", "Golang", "Kubernetes Operators", "CRDs", "OpenStack APIs", "Prometheus", "Grafana"],
-      results: [
-        "Reduced infrastructure costs by up to 30% for customers with intermittent workloads",
-        "Enabled automatic cost optimization without manual intervention",
-        "Improved resource utilization across 500+ customer clusters",
-        "Zero-downtime resume operations with proper health checks"
-      ]
-    },
-    {
-      title: "Automated Kubernetes Version Upgrade System",
-      description: "Built upgrade pipelines to automatically update control-plane and worker nodes in sync with upstream releases. Integrated version compatibility checks and rollback logic across 500+ deployments.",
-      tags: ["Kubernetes", "Automation", "Upgrades", "Version Management", "Rollback"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      details: [
-        "Designed automated upgrade pipelines for Kubernetes control-plane and worker nodes",
-        "Implemented version compatibility checks before initiating upgrades",
-        "Built rollback mechanisms with automated health validation",
-        "Created operator-based upgrade orchestration for zero-downtime deployments",
-        "Integrated with community Kubernetes releases (up to v1.32)",
-        "Developed pre-upgrade validation checks and post-upgrade verification",
-        "Automated VM template refreshes and image updates"
-      ],
-      technologies: ["Kubernetes", "Golang", "Kubernetes Operators", "ArgoCD", "Helm", "Terraform", "Ansible"],
-      results: [
-        "Delivered quarterly Kubernetes upgrades aligned with community releases",
-        "Maintained zero-downtime upgrades across 500+ production clusters",
-        "Reduced manual upgrade operations by 95%",
-        "Implemented automated rollback reducing MTTR from hours to minutes",
-        "Ensured security compliance with timely patch updates"
-      ]
-    },
-    {
-      title: "Multi-Cloud Networking Enhancements",
-      description: "Extended Machine Controller Manager (MCM) and Load Balancer integrations with Cilium CNI, Proxy Protocol, and multi-zone HA support.",
-      tags: ["Kubernetes", "Cilium", "eBPF", "Networking", "Multi-Cloud", "High Availability"],
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      details: [
-        "Extended Machine Controller Manager (MCM) for multi-cloud node management",
-        "Integrated Cilium CNI for eBPF-based networking and security",
-        "Developed advanced Load Balancer features including Proxy Protocol support",
-        "Implemented Layer 7 HTTPS routing with SSL termination",
-        "Built health check mechanisms for Load Balancer backends",
-        "Designed highly available ingress architecture for kube-apiserver",
-        "Implemented multi-zone failover ensuring resilient control plane operations",
-        "Enhanced network policies and security with eBPF-based enforcement"
-      ],
-      technologies: ["Kubernetes", "Cilium", "eBPF", "Golang", "OpenStack", "VMware", "Network Policies", "Load Balancing"],
-      results: [
-        "Improved network performance with eBPF-based data plane",
-        "Achieved zero-downtime control plane upgrades with multi-zone HA",
-        "Enhanced security with network policy enforcement at kernel level",
-        "Reduced latency with optimized load balancing algorithms",
-        "Enabled seamless multi-cloud networking across OpenStack and VMware"
-      ]
-    },
-    {
-      title: "Distributed Messaging System",
-      description: "Built a distributed middleware with replication, failure detection, and logical-clock synchronization. Demonstrated consistency and fault-tolerant message routing.",
-      tags: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection", "KTH"],
-      image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80",
-      details: [
-        "Implemented distributed messaging middleware using Erlang/OTP",
-        "Built replication mechanisms for fault tolerance",
-        "Developed failure detection algorithms",
-        "Implemented logical-clock synchronization",
-        "Designed and validated consistency guarantees",
-        "Created fault-tolerant message routing system"
-      ],
-      technologies: ["Erlang/OTP", "Distributed Systems", "Replication", "Failure Detection"],
-      results: [
-        "Demonstrated consistency in distributed message passing",
-        "Achieved fault-tolerant message routing",
-        "Validated system behavior under various failure scenarios"
-      ]
-    },
-    {
-      title: "Big Data Analytics System",
-      description: "Developed clustering, classification, and streaming analytics pipelines on large datasets using Apache Spark and Flink.",
-      tags: ["Python", "Apache Spark", "Apache Flink", "Big Data", "Machine Learning", "KTH"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-      details: [
-        "Implemented clustering algorithms for large-scale data analysis",
-        "Developed classification models for pattern recognition",
-        "Built batch processing pipelines with Apache Spark",
-        "Created streaming analytics with Apache Flink",
-        "Designed data processing workflows for large datasets",
-        "Analyzed and optimized performance of distributed data processing"
-      ],
-      technologies: ["Python", "Apache Spark", "Apache Flink", "Batch Processing", "Stream Processing"],
-      results: [
-        "Successfully processed large-scale datasets",
-        "Implemented efficient clustering and classification pipelines",
-        "Demonstrated real-time streaming analytics capabilities"
-      ]
-    },
-    {
-      title: "Multi-Agent Simulation Platform",
-      description: "Implemented negotiation, coordination, and decentralized decision-making using agent-based modeling. Analyzed emergent behavior under different agent architectures.",
-      tags: ["GAMA", "Multi-Agent Systems", "Agent-Based Modeling", "AI", "KTH"],
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80",
-      details: [
-        "Implemented multi-agent system using GAMA platform",
-        "Developed negotiation protocols between agents",
-        "Built coordination mechanisms for decentralized systems",
-        "Designed agent architectures with different behavioral patterns",
-        "Analyzed emergent behavior in complex systems",
-        "Evaluated performance under various agent configurations"
-      ],
-      technologies: ["GAMA", "Agent-Based Modeling", "Multi-Agent Systems", "Decentralized Decision-Making"],
-      results: [
-        "Demonstrated effective agent negotiation and coordination",
-        "Analyzed emergent behaviors in distributed systems",
-        "Evaluated different agent architectures"
-      ]
-    },
-    {
-      title: "Adaptive Partitioning for Cesium 3D Tiles",
-      description: "Designed adaptive octree partitioning for massive glTF datasets. Improved rendering and memory efficiency for 3D city models.",
-      tags: ["Python", "C++", "CesiumJS", "3D Graphics", "Bachelor Thesis", "HUST"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
-      details: [
-        "Designed adaptive octree partitioning algorithm for 3D tile datasets",
-        "Optimized partitioning for massive glTF datasets",
-        "Implemented memory-efficient rendering strategies",
-        "Improved rendering performance for 3D city models",
-        "Developed algorithms to balance detail and performance",
-        "Integrated with CesiumJS for visualization"
-      ],
-      technologies: ["Python", "C++", "CesiumJS", "3D Graphics", "Octree Partitioning", "glTF"],
-      results: [
-        "Improved rendering efficiency for large 3D models",
-        "Reduced memory usage through adaptive partitioning",
-        "Achieved better performance for 3D city model visualization",
-        "Ranked 1st in graduation thesis defense (9.5/10)"
-      ]
-    },
-  ];
+  const featured = projects.find((project) => project.featured)!;
 
   return (
-    <div className="min-h-screen bg-gradient-subtle">
-      <Navigation />
-      
-      <div className="pt-32 pb-20 px-6">
-        <div className="container mx-auto max-w-6xl">
-          <div className="animate-in fade-in duration-700">
-            <div className="text-center mb-12">
-              <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-                Projects & Open Source
-              </h1>
-              <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-                A collection of my work on Kubernetes, cloud infrastructure, and open-source contributions
-              </p>
-            </div>
+    <SiteLayout>
+      <PageHeader
+        title="Projects & Open Source"
+        description="A collection of my work on Kubernetes, cloud infrastructure, and open-source contributions"
+      />
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project) => (
-                <ProjectCard key={project.title} {...project} />
-              ))}
+      {/* Featured project */}
+      <section className="container-page pt-14 md:pt-20">
+        <Reveal>
+          <div className="grid overflow-hidden rounded-lg border border-border bg-card lg:grid-cols-12">
+            <div className="flex flex-col gap-5 p-6 md:p-10 lg:col-span-5">
+              <p className="text-sm font-medium text-primary">Favorite project</p>
+              <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">{featured.title}</h2>
+              <p className="leading-relaxed text-muted-foreground">{featured.description}</p>
+              <div className="flex flex-wrap gap-1.5">
+                {featured.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary" className="font-normal">
+                    {tag}
+                  </Badge>
+                ))}
+              </div>
+              <div className="mt-auto flex flex-wrap gap-2 pt-4">
+                <ProjectDialog project={featured}>
+                  <Button>Read the write-up</Button>
+                </ProjectDialog>
+                {featured.githubUrl && (
+                  <Button variant="outline" asChild>
+                    <a href={featured.githubUrl} target="_blank" rel="noopener noreferrer">
+                      <Github strokeWidth={1.75} />
+                      Source code
+                    </a>
+                  </Button>
+                )}
+                {featured.docUrl && (
+                  <Button variant="ghost" asChild>
+                    <a href={featured.docUrl} target="_blank" rel="noopener noreferrer">
+                      <FileText strokeWidth={1.75} />
+                      Documentation
+                    </a>
+                  </Button>
+                )}
+              </div>
+            </div>
+            <div className="border-t border-border bg-white lg:col-span-7 lg:border-l lg:border-t-0">
+              <img
+                src={featured.architectureImage}
+                alt={`${featured.title} architecture diagram`}
+                className="h-full w-full object-contain p-4 md:p-6"
+              />
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Reveal>
+      </section>
+
+      {/* Grouped projects */}
+      {projectGroups.map((group) => {
+        const items = projects.filter((project) => project.group === group.id && !project.featured);
+        if (items.length === 0) return null;
+
+        return (
+          <section key={group.id} className="container-page pt-20 md:pt-28" aria-labelledby={`group-${group.id}`}>
+            <Reveal>
+              <h2 id={`group-${group.id}`} className="text-2xl font-semibold tracking-tight md:text-3xl">
+                {group.title}
+              </h2>
+              <p className="mt-2 max-w-[60ch] text-muted-foreground">{group.blurb}</p>
+            </Reveal>
+
+            <div className="mt-8 grid gap-x-10 md:grid-cols-2">
+              {items.map((project, i) => (
+                <Reveal key={project.slug} delay={(i % 2) * 70}>
+                  <ProjectDialog project={project}>
+                    <button
+                      type="button"
+                      className="group flex w-full flex-col gap-3 border-t border-border py-6 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-primary">{project.title}</h3>
+                        <ArrowUpRight
+                          className="mt-1 h-4 w-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                          strokeWidth={1.75}
+                        />
+                      </div>
+                      <p className="line-clamp-3 max-w-[60ch] leading-relaxed text-muted-foreground">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tags.slice(0, MAX_TAGS).map((tag) => (
+                          <Badge key={tag} variant="secondary" className="font-normal">
+                            {tag}
+                          </Badge>
+                        ))}
+                        {project.tags.length > MAX_TAGS && (
+                          <span className="px-1 py-0.5 text-xs text-muted-foreground">
+                            +{project.tags.length - MAX_TAGS} more
+                          </span>
+                        )}
+                      </div>
+                    </button>
+                  </ProjectDialog>
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </SiteLayout>
   );
 };
 
